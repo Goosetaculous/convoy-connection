@@ -14,18 +14,20 @@ High Level
  Low Level
  
  API:
-   Yelp API 
+   Yelp API - Rick
    * Name of the restaurant
    * Rating
    
-   TripAdvisor
+   TripAdvisor - Shirlon
    * Name of the restaurant
    * Rating
    
-   Google Map
+   Google Map - KEVIN
    * Actual location of the restaurant on the map
    * Coordinates
    * Pictures
+   
+   Firebase: Goose
  
  Front End:
    HTML, CSS , JAVASCRIPT (JQUERY)
@@ -34,10 +36,14 @@ High Level
    2. CSS -  Fine lets use bootstrap
    3. Javascript - We'll be workin on it
    
+ May 20 - We decided who will be working with  
  BACKEND:
-   1. Firebase -  Store the data for retrieving
+   1. Firebase -  Store the data for retrieving -  
    2. JSON - Retrieve the data
    3. Localstorage -  caching?
    
 Deployment:  
    Will use heroku
+   
+
+   
