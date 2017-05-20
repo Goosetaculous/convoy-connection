@@ -30,13 +30,14 @@ High Level
  Front End:
    HTML, CSS , JAVASCRIPT (JQUERY)
    
-   HTML - straightforward 
-   CSS -  Fine lets use bootstrap
-   Javascript - We'll be workin on it
+   1. HTML - straightforward 
+   2. CSS -  Fine lets use bootstrap
+   3. Javascript - We'll be workin on it
    
  BACKEND:
-   Firebase -  Store the data for retrieving
-   
+   1. Firebase -  Store the data for retrieving
+   2. JSON - Retrieve the data
+   3. Localstorage -  caching?
    
    
  
