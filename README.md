@@ -39,5 +39,5 @@ High Level
    2. JSON - Retrieve the data
    3. Localstorage -  caching?
    
-   
- 
+Deployment:  
+   Will use heroku
