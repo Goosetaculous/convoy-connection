@@ -9,8 +9,7 @@ High Level
  2.  Location on the map
  3.  Trip Advisor review
  
- The user should also be able to pick the a pin on the map instead of putting it on the textbox. Then displays the results.
- What would be nice is if we can compare the ratings ( each api)
+ The user should also be able to pick  a pin on the map instead of putting it on the textbox.  Also this is strictly convoy so it should only show Convoy restaurants. Then displays the results. What would be nice is if we can compare the ratings ( each api)
  
  Low Level
  
