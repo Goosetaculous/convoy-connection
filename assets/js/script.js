@@ -9,10 +9,10 @@ $(document).ready(function(){
 
         $.ajax({
             type: "POST",
-            url: "https://api.yelp.com/oauth2/token",
-            headers: {
-                "Access-Control-Allow-Origin", "*"
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
+            url: "https://api.yelp.com/oauth2/token",
             processData: false,
             contentType: 'application/x-www-form-urlencoded',
             data: JSON.stringify(data),
