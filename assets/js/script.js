@@ -7,10 +7,7 @@ $(document).ready(function(){
         "url": "https://api.yelp.com/oauth2/token",
         "method": "POST",
         "headers": {
-            "content-type": "application/x-www-form-urlencoded",
-            "Access-Control-Allow-Origin":"http:https:github.com/Goosetaculous/convoy-connection/invitations",
-            "cache-control": "no-cache",
-            "postman-token": "9cd9b19a-52a7-de96-69e9-0cf241410c9c"
+            "content-type": "application/x-www-form-urlencoded"
         },
         "data": {
             "client_id": "z2UQxENYU2tfHC8qDBhNFg",
