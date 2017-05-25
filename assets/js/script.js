@@ -12,6 +12,7 @@ $(document).ready(function(){
             data: JSON.stringify(data),
             success: function(r) {
                 console.log(r)
+                alert(r)
             }
 
             });
