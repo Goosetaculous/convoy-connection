@@ -4,7 +4,7 @@ $(document).ready(function(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://api.yelp.com/oauth2/token",
+        "url": "https://crossorigin.me/https://api.yelp.com/oauth2/token",
         "method": "POST",
         "headers": {
             "content-type": "application/x-www-form-urlencoded",
