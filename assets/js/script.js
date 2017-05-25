@@ -8,7 +8,7 @@ $(document).ready(function(){
         "method": "POST",
         "headers": {
             "content-type": "application/x-www-form-urlencoded",
-            "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Origin":"http:https:github.com/Goosetaculous/convoy-connection/invitations",
             "cache-control": "no-cache",
             "postman-token": "9cd9b19a-52a7-de96-69e9-0cf241410c9c"
         },
