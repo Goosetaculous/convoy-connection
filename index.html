@@ -16,7 +16,10 @@
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
-        height: 90%;
+        height: 70%;
+        width: 80%;
+        position: absolute;
+        left: 20%;
         margin: 0;
         padding: 0;
       }
@@ -34,13 +37,20 @@
 
 <header>
 <div class="container">
-    <button class="yelp">Yelp</button>
-    <button class="zomato">Zomato</button>
-    <button class="google">Google</button>
+    <button id="yelp">Yelp</button>
+    <button id="zomato">Zomato</button>
+    <button id="google">Google</button>
+    <form>
+    	<input type="text" id="search">
+    </form>
 </div>
 </header>
 <div class="container">
-
+	<div class="row">
+		<div id="Gmaps-display"class="col-md-6">
+			
+		</div>
+	</div>
 </div>
 <footer></footer>
 

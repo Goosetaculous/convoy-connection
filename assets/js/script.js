@@ -1,24 +1,3 @@
-$(document).ready(function(){
-
-
-    var settings = {
-        async: true,
-        crossDomain: true,
-        url: "https://api.yelp.com/oauth2/token",
-        method: "POST",
-        headers: {
-            "content-type": "application/x-www-form-urlencoded"
-        },
-        data: {
-            client_id: "z2UQxENYU2tfHC8qDBhNFg",
-            client_secret: "pkvMp9YG30GnouqQEspkge3YKp1h5f05ZnzzQGA35ImfV7reXfQy0qEt0fNIPS7P"
-        }
-    }
-
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-    });
-
 var map;
 var response1;
 var location;
@@ -27,10 +6,13 @@ var userPosition = {
   lng: 0
 }
 
+var searchterm = "food";
+
   //Grabs the search results from Google API
-  function queryGMapsAPI () {
+  function queryGMapsAPI (searchterm) {
+    initMap();
     $.ajax({
-      url: "http://crossorigin.me/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=32.912618099999996,-117.1397224&radius=3500&type=restaurant&keyword=food&key=AIzaSyBBojALvC0zFv82BS2A16rIxnq_bBCl4pQ",
+      url: "http://crossorigin.me/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=32.912618099999996,-117.1397224&radius=3500&type=restaurant&keyword="+searchterm+"&key=AIzaSyBBojALvC0zFv82BS2A16rIxnq_bBCl4pQ",
       method: "GET"
       }).done(function(response) {
       console.log(response);
@@ -39,10 +21,25 @@ var userPosition = {
         console.log(response);
         console.log(response.results[i].geometry.location);
         var coords = response.results[i].geometry.location;
+        var name = response.results[i].name;
+        var rating = response.results[i].rating;
         var latLng = new google.maps.LatLng(coords.lat,coords.lng);
         var marker = new google.maps.Marker({
           position: latLng,
-          map: map
+          map: map,
+          name: name,
+          rating: rating
+          });
+        // Adds click event listener to re-center map, load up info onto display
+         marker.addListener("click", function() {
+          map.setCenter(this.getPosition());
+          map.setZoom(16);
+          var displayName = this.name;
+          var displayRating = this.rating;
+          $("#Gmaps-display").text("");
+          $("#Gmaps-display").append(displayName);
+          $("#Gmaps-display").append("</br>");
+          $("#Gmaps-display").append(rating);
           });
         }
       }
@@ -73,6 +70,33 @@ var userPosition = {
     console.log(userPosition);
   }
 
+$(document).ready(function(){
+
+    var settings = {
+        async: true,
+        crossDomain: true,
+        url: "http://crossorigin.me/https://api.yelp.com/oauth2/token",
+        method: "POST",
+        headers: {
+            "content-type": "application/x-www-form-urlencoded"
+        },
+        data: {
+            client_id: "z2UQxENYU2tfHC8qDBhNFg",
+            client_secret: "pkvMp9YG30GnouqQEspkge3YKp1h5f05ZnzzQGA35ImfV7reXfQy0qEt0fNIPS7P"
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
+
+ $("#google").on("click", function(event) {
+    searchterm = $("#search").val();
+    queryGMapsAPI(searchterm);
+  });
+
 getLocation();
 initMap();
-queryGMapsAPI();
+queryGMapsAPI(searchterm);
+
+});
