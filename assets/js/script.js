@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     var coordinates=[32.750296, -117.171673]
-    var term
+    var otData
 
 
     //Initialize carousel
@@ -32,36 +32,40 @@ $(document).ready(function(){
     }
 
     function callOpentable(term){
+        $.ajax({
+            method: "GET",
+            url: opentable.url + opentable.name+term
 
+        }).done(function(data){
+            gmapMarker(data.restaurants[0].lat,data.restaurants[0].lng)
+        })
+    }
+    //Add gmapMarker
+    function gmapMarker(lat,lng){
+        coordinates = [lat,lng]
+        $("#map").addMarker({
+            coords: coordinates,
+        });
     }
 
 
-
-
-
     //Get the results from textbox
-    $("#restaurant-search").keyup(function(event){
-        callZomator( $(this).val() )
-        callOpentable( $(this).val )
-        //term =  $(this).val()
-        console.log($(this).val())
+    $("#search").on("click",function(event){
+
+
+        //Call Opentable API
+        callOpentable( $("#restaurant-search").val() )
+
+
+
     })
 
 
     $("#map").googleMap({
-        zoom: 10, // Initial zoom level (optional)
+        zoom: 12, // Initial zoom level (optional)
         coords: coordinates, // Map center (optional)
         type: "ROADMAP" // Map type (optional)
     });
-
-
-
-
-
-
-
-
-
 
 
 });
