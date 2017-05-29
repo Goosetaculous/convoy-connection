@@ -37,10 +37,9 @@ $(document).ready(function(){
             url: opentable.url + opentable.name+term
 
         }).done(function(data){
-            gmapMarker(data.restaurants[0].lat,data.restaurants[0].lng)
+            console.log(data.restaurants[0].lat,data.restaurants[0].lng)
         })
     }
-    //Add gmapMarker
 
     //Get the results from textbox
     $("#search").on("click",function(event){

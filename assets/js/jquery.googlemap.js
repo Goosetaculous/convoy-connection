@@ -72,7 +72,7 @@ var searchterm = "food";
 
 $(document).ready(function(){
 
- $("#google").on("click", function(event) {
+ $("#search").on("click", function(event) {
     searchterm = $("#search").val();
     queryGMapsAPI(searchterm);
   });
