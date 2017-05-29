@@ -1,4 +1,8 @@
 $(document).ready(function(){
+
+    var coordinates=[32.750296, -117.171673]
+
+
     //Initialize carousel
     $('.carousel').carousel();
     //initialize zomato
@@ -19,6 +23,19 @@ $(document).ready(function(){
         "city"  : "city=",
         "name"  : "name="
     }
+
+
+    //Get the results from textbox
+    $("#restaurant-search").keyup(function(event){
+        console.log($(this).val())
+    })
+
+
+    $("#map").googleMap({
+        zoom: 10, // Initial zoom level (optional)
+        coords: coordinates, // Map center (optional)
+        type: "ROADMAP" // Map type (optional)
+    });
 
 
 

@@ -3,12 +3,18 @@
 
 <head>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBjo9sKTP9ZHdVW06vzt_sa3oLrupnzF0"
+            async defer></script>
+    <script type="text/javascript" src="assets/js/jquery.googlemap.js"></script>
+    <script type="text/javascript" src="assets/js/materialize.min.js"></script>
+
+
 
     <!-- MaterializeCSS -->
     <link rel="stylesheet" href="assets/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script type="text/javascript" src="assets/js/script.js"></script>
-    <script type="text/javascript" src="assets/js/map.js"></script>
+    <!--<script type="text/javascript" src="assets/js/map.js"></script>-->
 
     <style>
 
@@ -24,7 +30,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <input placeholder="Search a retaurant" id="search" type="text" class="validate">
+        <input placeholder="Search a retaurant" id="restaurant-search" type="text" class="validate">
         <label for="Returant Name">Restaurant</label>
 
     </div>
@@ -46,10 +52,8 @@
 </div>
 
 
-    <!--Materialize -->
-    <script type="text/javascript" src="assets/js/materialize.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBjo9sKTP9ZHdVW06vzt_sa3oLrupnzF0&callback=initMap"
-            async defer></script>
+
+
 
 </body>
 </html>
