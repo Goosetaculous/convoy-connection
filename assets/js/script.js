@@ -1,15 +1,16 @@
 $(document).ready(function(){
 
     var coordinates=[32.750296, -117.171673]
+    var term
 
 
     //Initialize carousel
     $('.carousel').carousel();
     //initialize zomato
-    var zomato = {
+    var zomatoAPI = {
         "async"     : true,
         "crossDomain": true,
-        "url"       : "https://developers.zomato.com/api/v2.1/categories",
+        "url"       : "https://developers.zomato.com/api/v2.1/restaurant",
         "method"    : "GET",
         "headers"   : {
             "Accept": "application/json",
@@ -24,9 +25,25 @@ $(document).ready(function(){
         "name"  : "name="
     }
 
+    function callZomator(term){
+        $.ajax(zomatoAPI).done(function (response){
+            console.log(response)
+        })
+    }
+
+    function callOpentable(term){
+
+    }
+
+
+
+
 
     //Get the results from textbox
     $("#restaurant-search").keyup(function(event){
+        callZomator( $(this).val() )
+        callOpentable( $(this).val )
+        //term =  $(this).val()
         console.log($(this).val())
     })
 
