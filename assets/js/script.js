@@ -41,13 +41,6 @@ $(document).ready(function(){
         })
     }
     //Add gmapMarker
-    function gmapMarker(lat,lng){
-        coordinates = [lat,lng]
-        $("#map").addMarker({
-            coords: coordinates,
-        });
-    }
-
 
     //Get the results from textbox
     $("#search").on("click",function(event){
@@ -59,13 +52,4 @@ $(document).ready(function(){
 
 
     })
-
-
-    $("#map").googleMap({
-        zoom: 12, // Initial zoom level (optional)
-        coords: coordinates, // Map center (optional)
-        type: "ROADMAP" // Map type (optional)
-    });
-
-
 });
