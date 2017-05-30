@@ -10,7 +10,7 @@ $(document).ready(function(){
     var zomatoAPI = {
         "async"     : true,
         "crossDomain": true,
-        "url"       : "https://developers.zomato.com/api/v2.1/restaurant",
+        "url"       : "https://developers.zomato.com/api/v2.1/search?entity_id=302&entity_type=city&q=92111",
         "method"    : "GET",
         "headers"   : {
             "Accept": "application/json",
@@ -25,11 +25,22 @@ $(document).ready(function(){
         "name"  : "name="
     }
 
-    function callZomator(term){
-        $.ajax(zomatoAPI).done(function (response){
-            console.log(response)
-        })
-    }
+    // This runQuery function expects two parameters:
+// (the number of articles to show and the final URL to download data from)
+  function callZomatoAPI() {
+    $.ajax(zomatoAPI).done(function(results) {
+    // Logging the URL so we have access to it for troubleshooting
+    console.log("------------------------------------");
+    console.log("URL: " + zomatoAPI.url);
+    console.log("------------------------------------");
+    // Log the Zomato to console, where it will show up as an object
+    console.log(results);
+    })
+  }
+    
+    
+
+
 
     function callOpentable(term){
         $.ajax({
@@ -49,8 +60,12 @@ $(document).ready(function(){
         callOpentable( $("#restaurant-search").val() )
 
 
+        //Call Zomato API
+
+
 
     })
 
 });
 
+callZomatoAPI();
