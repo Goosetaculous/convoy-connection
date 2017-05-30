@@ -16,6 +16,7 @@ var searchterm = "food";
       method: "GET"
       }).done(function(response) {
       console.log(response);
+      $("#temp-display").html("");
       // Loops through the results array and places a marker for each
       for (var i = 0; i < 10; i++) {
         console.log(response);
