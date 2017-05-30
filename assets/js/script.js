@@ -2,6 +2,18 @@ $(document).ready(function(){
 
     var coordinates=[32.750296, -117.171673]
     var otData
+    
+    var cuisineArr = ["Asian", "Bubble Tea", "Cambodian", "Cantonese", "Chinese", "Dim Sum", "Filipino", "Fusion", "Japanese", "Korean", "Laotion", "Mongolian", "Nepalese", "Ramen", "Seafood", "Sushi", "Taiwanese", "Teriyaki", "Thai", "Vietnamese"]
+    var allRestArr = [];
+    var restaurantInfo = {
+      name: "",
+      address: "",
+      cuisine: "",
+      ratingNum: "",
+      ratingUsers: "",
+      ratingText: ""
+    };
+
 
 
     //Initialize carousel
@@ -25,17 +37,34 @@ $(document).ready(function(){
         "name"  : "name="
     }
 
-    // This runQuery function expects two parameters:
-// (the number of articles to show and the final URL to download data from)
+    
   function callZomatoAPI() {
     $.ajax(zomatoAPI).done(function(results) {
-    // Logging the URL so we have access to it for troubleshooting
-    console.log("------------------------------------");
-    console.log("URL: " + zomatoAPI.url);
-    console.log("------------------------------------");
-    // Log the Zomato to console, where it will show up as an object
-    console.log(results);
-    })
+      console.log(results);
+      
+      for(i = 0; i < 20; i++){
+        console.log("------------------------------------");
+        restaurantInfo.name = results.restaurants[i].restaurant.name;
+        console.log("Name: " + restaurantInfo.name);
+        restaurantInfo.address = results.restaurants[i].restaurant.location.address;
+        console.log("Address: " + restaurantInfo.address);
+        restaurantInfo.cuisine = results.restaurants[i].restaurant.cuisines;
+        console.log("Cuisine: " + restaurantInfo.cuisine);
+        restaurantInfo.ratingNum = results.restaurants[i].restaurant.user_rating.aggregate_rating;
+        restaurantInfo.ratingUsers = results.restaurants[i].restaurant.user_rating.votes;
+        restaurantInfo.ratingText = results.restaurants[i].restaurant.user_rating.rating_text;
+        console.log(restaurantInfo.ratingNum + "/5 out of "+restaurantInfo.ratingUsers+ " user votes");
+        console.log("Rated: " +restaurantInfo.ratingText);
+        console.log("------------------------------------");
+        console.log(restaurantInfo);
+        allRestArr.push(restaurantInfo);
+        
+      }
+      console.log(allRestArr);
+      //Featured Image URL
+      //console.log(results.restaurants[i].restaurant.featured_image);
+      
+    });
   }
     
     
@@ -66,6 +95,8 @@ $(document).ready(function(){
 
     })
 
+  callZomatoAPI();
+
 });
 
-callZomatoAPI();
+
