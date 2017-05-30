@@ -2,8 +2,8 @@ var map;
 var response1;
 var location;
 var userPosition = {
-  lat: 0,
-  lng: 0
+  lat: 32.920125899999995,
+  lng: -117.10881489999998
 }
 
 var searchterm = "food";
@@ -12,7 +12,7 @@ var searchterm = "food";
   function queryGMapsAPI (searchterm) {
     initMap();
     $.ajax({
-      url: "http://crossorigin.me/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=32.912618099999996,-117.1397224&radius=3500&type=restaurant&keyword="+searchterm+"&key=AIzaSyBBojALvC0zFv82BS2A16rIxnq_bBCl4pQ",
+      url: "http://crossorigin.me/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+userPosition.lat+","+userPosition.lng+"&radius=3500&type=restaurant&keyword="+searchterm+"&key=AIzaSyBBojALvC0zFv82BS2A16rIxnq_bBCl4pQ",
       method: "GET"
       }).done(function(response) {
       console.log(response);
@@ -30,6 +30,16 @@ var searchterm = "food";
           name: name,
           rating: rating
           });
+          var displayName = marker.name;
+          var displayRating = marker.rating;
+          var resultsDiv = $("<div></div>");
+          resultsDiv.append(displayName);
+          resultsDiv.append("</br>");
+          resultsDiv.append(rating);
+          resultsDiv.attr("lat", coords.lat);
+          resultsDiv.attr("lng", coords.lng);
+          $("#temp-display").append(resultsDiv);
+
         // Adds click event listener to re-center map, load up info onto display
          marker.addListener("click", function() {
           map.setCenter(this.getPosition());
@@ -49,7 +59,7 @@ var searchterm = "food";
   //Initialize the map and set center and zoom
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
-    center: new google.maps.LatLng(32.912618099999996,-117.1397224),
+    center: new google.maps.LatLng(userPosition.lat, userPosition.lng),
     mapTypeId: 'terrain'
     });
   }
@@ -58,6 +68,7 @@ var searchterm = "food";
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
+      initMap();
     } 
     else { 
       console.log("Geolocation is not supported by this browser.");
@@ -73,8 +84,10 @@ var searchterm = "food";
 $(document).ready(function(){
 
  $("#search").on("click", function(event) {
-    searchterm = $("#search").val();
+    searchterm = $("#restaurant-search").val();
     queryGMapsAPI(searchterm);
+    console.log(userPosition.lat);
+    console.log(searchterm);
   });
 
   getLocation();
