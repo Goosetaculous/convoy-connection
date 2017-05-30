@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convoy Connection2</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBjo9sKTP9ZHdVW06vzt_sa3oLrupnzF0"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/gmap.js"></script>
+    <script src="assets/js/frontend.js"></script>
+</head>
+<body>
+<div class="section">
+    <h1>Restaurant Awesome</h1>
+</div>
+<div class="container">
+    <div class="jumbotron" style="background-color: black; color: white">
+        <h1 class="text-center">Convoy Connection</h1>
+        <h3 class="text-center">Restaurant Review</h3>
+    </div>
+    <div class="panel-heading">
+        <h3 class="panel-title"><strong>The best of San Diego's Asian Cuisine</strong></h3>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <div class="carousel carousel-slider">
+                        <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/800/400/food/1"></a>
+                        <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/800/400/food/2"></a>
+                        <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/800/400/food/3"></a>
+                        <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/800/400/food/4"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s6">
+            <div id="map"></div>
+        </div>
+        <table class="table table-hover" id='employee-table'>
+            <thead>
+            <tr>
+                <th>Restaurant Name</th>
+                <th>Address</th>
+                <th>Telephone Number</th>
+                <th>Hours of Operation</th>
+                <th>Type of Cuisine</th>
+                <th>Review</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tr>
+            </thead>
+            <tbody id="restaurantList">
+            <tr>
+                <td>Tajima</td>
+                <td>4531 Main Street San Diego Ca 92111</td>
+                <td>858-444-0111</td>
+                <td>10:00 a.m. to 9:00 p.m.</td>
+                <td>Japanese</td>
+                <td>*****</td>
+            </tr>
+            </tbody>
+        </table>
+</body>
+</html>
