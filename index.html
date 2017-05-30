@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="col s6">
-            <div id="map"></div>
+            <div id="map">Map goes Here</div>
         </div>
         <table class="table table-hover" id='employee-table'>
             <thead>
@@ -61,19 +61,5 @@
             </tr>
             </tbody>
         </table>
-        <script>
-            $('.carousel.carousel-slider').carousel({fullWidth: true});
-            $(document).ready(function () {
-                $('.carousel').carousel();
-                $('.carousel').carousel('next');
-                $('.carousel').carousel('next', 3); // Move next n times.
-                $('.carousel').carousel('prev');
-                $('.carousel').carousel('prev', 4); // Move prev n times.
-                $('.carousel').carousel('set', 4);
-            });
-        </script>
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBojALvC0zFv82BS2A16rIxnq_bBCl4pQ&callback=initMap">
-        </script>
 </body>
 </html>
