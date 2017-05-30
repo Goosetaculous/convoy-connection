@@ -1,108 +1,97 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Convoy Connection</title>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <!-- Materialize CDN-->
-   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
-  	<!-- MomentJS -->
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <!-- MomentJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 </head>
 <body>
-    <!-- Employee Tracker -->
-    <div class="container">
-      <!-- Jumbotron -->
-      <div class="jumbotron" style="background-color: black; color: white">
+<!-- Employee Tracker -->
+<div class="container">
+    <!-- Jumbotron -->
+    <div class="jumbotron" style="background-color: black; color: white">
         <h1 class="text-center">Convoy Connection</h1>
         <h3 class="text-center">Restaurant Review</h3>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-        <!-- Current Employees-->
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title"><strong>The best of San Diego's Asian Cuisine</strong></h3>
-            </div>
-            <div class="panel-body">
-            <div class="carousel carousel-slider">
-    <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/800/400/food/1"></a>
-    <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/800/400/food/2"></a>
-    <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/800/400/food/3"></a>
-    <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/800/400/food/4"></a> 
-
-    //Shirlon and Goose will populate in  JS.//
-  </div>
-              <table class="table table-hover" id='employee-table'>
-                <thead>
-                  <tr>
-                    <th>Restaurant Name</th>
-                    <th>Address</th>
-                    <th>Telephone Number</th>
-                    <th>Hours of Operation</th>
-                    <th>Type of Cuisine</th>
-                    <th>Review</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
-                  
-
-      
-             <!-- Add Employee  -->
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title"><strong>Add Restaurant</strong></h3>
-            </div>
-            <div class="panel-body">
-              <!-- Entry Form -->
-              <form>
-                <div class="form-group">
-                  <label for="employee-name-input">Restaurant Name</label>
-                  <input class="form-control" id="employee-name-input" type="text">
-                </div>
-                <div class="form-group">
-                  <label for="role-input">Address</label>
-                  <input class="form-control" id="role-input" type="text">
-                </div>
-                <div class="form-group">
-                  <label for="start-input">Hours of Operation (Open to Close - ex: 10 a.m. - 7 p.m.)</label>
-                  <input class="form-control" id="start-input" type="text">
-                </div>
-                <div class="form-group">
-                  <label for="rate-input">Review</label>
-                  <input class="form-control" id="rate-input" type="text">
-                </div>
-                <button class="btn btn-primary" id="add-employee-btn" type="submit">Submit</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-    <!-- JavaScript -->
-    <script>
-    $('.carousel.carousel-slider').carousel({fullWidth: true});
-    $(document).ready(function(){
-      $('.carousel').carousel();
-      // Next slide
-$('.carousel').carousel('next');
-$('.carousel').carousel('next', 3); // Move next n times.
+    <div class="panel-heading">
+        <h3 class="panel-title"><strong>The best of San Diego's Asian Cuisine</strong></h3>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <!-- Current Employees-->
+            <div class="panel panel-primary">
+
+                <div class="panel-body">
+                    <div class="carousel carousel-slider">
+                        <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/800/400/food/1"></a>
+                        <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/800/400/food/2"></a>
+                        <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/800/400/food/3"></a>
+                        <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/800/400/food/4"></a>
+
+                        //Shirlon and Goose will populate in JS.//
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col s6">
+            Map
+        </div>
+        <table class="table table-hover" id='employee-table'>
+            <thead>
+            <tr>
+                <th>Restaurant Name</th>
+                <th>Address</th>
+                <th>Telephone Number</th>
+                <th>Hours of Operation</th>
+                <th>Type of Cuisine</th>
+                <th>Review</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tr>
+                    </thead>
+                    <tbody id="restaurantList">
+                        <tr>
+                            <td>Tajima</td>
+                            <td>4531 Main Street San Diego Ca 92111</td>
+                            <td>858-444-0111</td>
+                            <td>10:00 a.m. to 9:00 p.m.</td>
+                            <td>Japanese</td>
+                            <td>*****</td>
+                        </tr>
+            </tbody>
+        </table>
+
+
+
+        <!-- JavaScript -->
+        <script>
+            $('.carousel.carousel-slider').carousel({fullWidth: true});
+            $(document).ready(function () {
+                $('.carousel').carousel();
+                // Next slide
+                $('.carousel').carousel('next');
+                $('.carousel').carousel('next', 3); // Move next n times.
 // Previous slide
-$('.carousel').carousel('prev');
-$('.carousel').carousel('prev', 4); // Move prev n times.
+                $('.carousel').carousel('prev');
+                $('.carousel').carousel('prev', 4); // Move prev n times.
 // Set to nth slide
-$('.carousel').carousel('set', 4);
-    });
-    </script>
-  </body>
+                $('.carousel').carousel('set', 4);
+            });
+        </script>
+</body>
 </html>
-<style>
