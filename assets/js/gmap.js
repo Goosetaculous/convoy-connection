@@ -2,8 +2,8 @@ var map;
 var response1;
 var location;
 var userPosition = {
-    lat: 32.920125899999995,
-    lng: -117.10881489999998
+    lat: 32.8238037,
+    lng: -117.227314
 }
 
 var searchterm = "food";
@@ -62,6 +62,10 @@ function initMap() {
         zoom: 14,
         center: new google.maps.LatLng(userPosition.lat, userPosition.lng),
         mapTypeId: 'terrain'
+    });
+    var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
     });
 }
 
