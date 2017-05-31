@@ -11,7 +11,7 @@ $(document).ready(function(){
     //initialize zomato
    
     function populateTable(restaurantInfo){
-       var tr=$("<tr id='"+restaurantInfo.id+"'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingUsers+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
+       var tr=$("<tr id='"+restaurantInfo.id+"'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
            $("#restaurantList").append(tr)
     }
 
@@ -59,7 +59,7 @@ $(document).ready(function(){
                 "address"          : results.restaurants[i].restaurant.location.address,
                 "cuisine"          : results.restaurants[i].restaurant.cuisines,
                 "ratingNum"        : results.restaurants[i].restaurant.user_rating.aggregate_rating,
-                "restaurantInfo"   : results.restaurants[i].restaurant.user_rating.votes,
+                "ratingVotes"      : results.restaurants[i].restaurant.user_rating.votes,
                 "ratingText"       : results.restaurants[i].restaurant.user_rating.rating_text
             }
             //if( cuisineArr.indexOf(info.cuisine) !== -1 ){
