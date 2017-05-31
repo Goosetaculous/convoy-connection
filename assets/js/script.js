@@ -9,20 +9,29 @@ $(document).ready(function(){
     //Initialize carousel
     $('.carousel').carousel();
     //initialize zomato
-    var zomatoAPI = {
-        "async"     : true,
-        "crossDomain": true,
-        "url"       : "https://developers.zomato.com/api/v2.1/search?entity_id=302&entity_type=city&q=92111",
-        "method"    : "GET",
-        "headers"   : {
-            "Accept": "application/json",
-            "user-key": "2764611985fca4aa535b451992f20776"
-        },
-    }
+   
     function populateTable(restaurantInfo){
        var tr=$("<tr id='"+restaurantInfo.id+"'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingUsers+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
            $("#restaurantList").append(tr)
     }
+
+    function getReview(res_id){
+        var test = "17076027"
+        $.ajax({
+            "async"         :   true,
+            "crossDomain"   :   true,
+            "url"           :   zomatorAPI+ "reviews?res_id="+test,
+            "method"        :   "GET",
+            "headers"       : {
+                "Accept"    : "application/json",
+                "user-key"  : zomatorKey
+            }
+        }).done(function(results){
+            console.log(results)
+        })
+
+    }
+
 
     function zomatorSearch(){
         $.ajax({
@@ -36,6 +45,7 @@ $(document).ready(function(){
             }
         }).done(function(results){
             traverseResults(results)
+            getReview()
         })
     }
 
@@ -92,9 +102,9 @@ $(document).ready(function(){
 
             }
             console.log(allRestArr);
-            Featured Image URL
+            //Featured Image URL
             console.log(results.restaurants[i].restaurant.featured_image);
-            awesome!
+            //awesome!
 
         });
     }
