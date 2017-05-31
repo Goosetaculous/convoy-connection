@@ -94,6 +94,7 @@ $(document).ready(function(){
             console.log(allRestArr);
             Featured Image URL
             console.log(results.restaurants[i].restaurant.featured_image);
+            awesome!
 
         });
     }
