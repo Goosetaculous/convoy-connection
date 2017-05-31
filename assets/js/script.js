@@ -1,17 +1,18 @@
 $(document).ready(function(){
 
-    var cuisineArr = ["Asian", "Bubble Tea", "Cambodian", "Cantonese", "Chinese", "Dim Sum", "Filipino", "Fusion", "Japanese", "Korean", "Laotion", "Mongolian", "Nepalese", "Ramen", "Seafood", "Sushi", "Taiwanese", "Teriyaki", "Thai", "Vietnamese"]
+    
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
     var zomatorKey="2764611985fca4aa535b451992f20776"
     var start = 1
     var allRestArr = [];
     //Initialize carousel
     $('.carousel').carousel();
-    //initialize zomato
+    
 
     function populateTable(restaurantInfo){
-       var tr=$("<tr id='"+restaurantInfo.id+"' class='restaurant-name'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
+       var tr=$("<tr id='"+restaurantInfo.id+"' class='restaurant-name' data-latitude=" + restaurantInfo.latitude + " data-longitude=" + restaurantInfo.longitude + "><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
            $("#restaurantList").append(tr).show()
+           
     }
 
 
@@ -61,10 +62,14 @@ $(document).ready(function(){
                 "cuisine"          : results.restaurants[i].restaurant.cuisines,
                 "ratingNum"        : results.restaurants[i].restaurant.user_rating.aggregate_rating,
                 "ratingVotes"      : results.restaurants[i].restaurant.user_rating.votes,
-                "ratingText"       : results.restaurants[i].restaurant.user_rating.rating_text
+                "ratingText"       : results.restaurants[i].restaurant.user_rating.rating_text,
+                "latitude"         : results.restaurants[i].restaurant.location.latitude,
+                "longitude"        : results.restaurants[i].restaurant.location.longitude
             }
             //if( cuisineArr.indexOf(info.cuisine) !== -1 ){
                 populateTable(info)
+                
+
             //}
         }
 
