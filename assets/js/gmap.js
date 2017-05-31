@@ -87,14 +87,17 @@ var coords = {
         var name = response.results[0].name;
         var rating = response.results[0].rating;
         var latLng = new google.maps.LatLng(coords.lat,coords.lng);
-        reinitMap();
+        map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: new google.maps.LatLng(coords.lat, coords.lng)
+            });
         var marker = new google.maps.Marker({
-          position: latLng,
-          map: map,
-          name: name,
-          rating: rating
-          });
+        position: latLng,
+        map: map,
+        name: name,
+        rating: rating
         });
+        });;
     }
 
   function placeMarker() {
