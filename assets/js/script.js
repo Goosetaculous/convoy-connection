@@ -10,7 +10,7 @@ $(document).ready(function(){
     //initialize zomato
 
     function populateTable(restaurantInfo){
-       var tr=$("<tr id='"+restaurantInfo.id+" data-longitude="+restaurantInfo.longitude+" data-latitude="+restaurantInfo.latitude+"'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
+       var tr=$("<tr class='restaurant-name' id='"+restaurantInfo.id+" data-longitude="+restaurantInfo.longitude+" data-latitude="+restaurantInfo.latitude+"'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
            $("#restaurantList").append(tr)
     }
 
@@ -51,8 +51,6 @@ $(document).ready(function(){
     }
 
     function traverseResults(results){
-        console.log("results",results.results_shown)
-
         for (var i = 0; i< results.results_shown; i++){
             var info={
                 "id"               : results.restaurants[i].restaurant.id,
@@ -95,6 +93,7 @@ $(document).ready(function(){
     })
 
     $("#restaurantList").on("click", ".restaurant-name",function(){
+        console.log("TSET")
         getRestaurantImage( $(this).attr("id") )
 
     })
