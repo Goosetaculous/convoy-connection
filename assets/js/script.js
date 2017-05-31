@@ -75,7 +75,11 @@ $(document).ready(function(){
         start= start +5
         zomatorSearch();
     })
-    
+
+    $("#restaurantList").on("click", ".restaurant-name",function(){
+        console.log($(this))
+    })
+
 
 
     //initial load
