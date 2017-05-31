@@ -10,9 +10,14 @@ $(document).ready(function(){
     
 
     function populateTable(restaurantInfo){
+<<<<<<< HEAD
        var tr=$("<tr id='"+restaurantInfo.id+"' class='restaurant-name' data-latitude=" + restaurantInfo.latitude + " data-longitude=" + restaurantInfo.longitude + "><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
            $("#restaurantList").append(tr).show()
            
+=======
+       var tr=$("<tr class='restaurant-name' id='"+restaurantInfo.id+" data-longitude="+restaurantInfo.longitude+" data-latitude="+restaurantInfo.latitude+"'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
+           $("#restaurantList").append(tr)
+>>>>>>> dc9b683209bcaf690c441062c5d765fa1c4fde77
     }
 
 
@@ -29,7 +34,7 @@ $(document).ready(function(){
                 "user-key"  : zomatorKey
             }
         }).done(function(results){
-            console.log(results)
+        //    console.log(results)
         })
 
     }
@@ -52,8 +57,6 @@ $(document).ready(function(){
     }
 
     function traverseResults(results){
-        console.log("results",results.results_shown)
-
         for (var i = 0; i< results.results_shown; i++){
             var info={
                 "id"               : results.restaurants[i].restaurant.id,
@@ -66,21 +69,43 @@ $(document).ready(function(){
                 "latitude"         : results.restaurants[i].restaurant.location.latitude,
                 "longitude"        : results.restaurants[i].restaurant.location.longitude
             }
-            //if( cuisineArr.indexOf(info.cuisine) !== -1 ){
-                populateTable(info)
-                
 
-            //}
+            populateTable(info)
+
         }
+    }
+
+    function getRestaurantImage(res_id){
+        $.ajax({
+            "async"         :   true,
+            "crossDomain"   :   true,
+            "url"           :   zomatorAPI+ "restaurant?res_id="+res_id,
+            "method"        :   "GET",
+            "headers"       : {
+                "Accept"    : "application/json",
+                "user-key"  : zomatorKey
+            }
+        }).done(function(results){
+            console.log("TEST->",results.featured_image)
+            var img =  $("<img>").attr("src",results.featured_image )
+
+            $(".restaurant-image").html(img)
+        })
 
 
     }
-
+  
     $("#load-more").on("click",function(){
         start= start +5
         zomatorSearch();
     })
-    
+
+    $("#restaurantList").on("click", ".restaurant-name",function(){
+        console.log("TSET")
+        getRestaurantImage( $(this).attr("id") )
+
+    })
+
 
 
     //initial load
