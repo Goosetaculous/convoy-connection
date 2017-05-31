@@ -91,9 +91,9 @@ $(document).ready(function(){
                 populateTable(restaurantInfo)
 
             }
-            //console.log(allRestArr);
-            //Featured Image URL
-            //console.log(results.restaurants[i].restaurant.featured_image);
+            console.log(allRestArr);
+            Featured Image URL
+            console.log(results.restaurants[i].restaurant.featured_image);
 
         });
     }
