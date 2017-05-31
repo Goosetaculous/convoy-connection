@@ -100,17 +100,9 @@ var coords = {
         });;
     }
 
-  function placeMarker() {
-    map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 14,
-    center: new google.maps.LatLng(userPosition.lat, userPosition.lng)
-    });
-  };
-
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
-      initMap();
     } 
     else { 
       console.log("Geolocation is not supported by this browser.");
@@ -120,6 +112,7 @@ var coords = {
   function showPosition(position) {
     userPosition.lat = position.coords.latitude;
     userPosition.lng = position.coords.longitude;
+    initMap();
   }
 
 $(document).ready(function(){
