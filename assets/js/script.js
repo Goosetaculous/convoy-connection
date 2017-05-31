@@ -72,6 +72,27 @@ $(document).ready(function(){
 
     }
 
+    function getRestaurantImage(res_id){
+        $.ajax({
+            "async"         :   true,
+            "crossDomain"   :   true,
+            "url"           :   zomatorAPI+ "restaurant?res_id="+res_id,
+            "method"        :   "GET",
+            "headers"       : {
+                "Accept"    : "application/json",
+                "user-key"  : zomatorKey
+            }
+        }).done(function(results){
+            console.log("TEST->",results.featured_image)
+            var img =  $("<img>").attr("src",results.featured_image )
+
+            $(".restaurant-image").html(img)
+        })
+
+
+    }
+
+
     $("#load-more").on("click",function(){
         start= start +5
         zomatorSearch();
@@ -79,37 +100,13 @@ $(document).ready(function(){
 
 
 
-    function callZomatoAPI() {
-        $.ajax(zomatoAPI).done(function(results) {
-            for(i = 0; i < 20; i++){
-                var restaurantInfo = {
-                    name: "",
-                    address: "",
-                    cuisine: "",
-                    ratingNum: "",
-                    ratingUsers: "",
-                    ratingText: ""
-                };
+    $("#restaurantList").on("click", ".restaurant-name",function(){
+        getRestaurantImage( $(this).attr("id") )
 
-                console.log("------------------------------------");
-                restaurantInfo.name = results.restaurants[i].restaurant.name;
-                restaurantInfo.address = results.restaurants[i].restaurant.location.address;
-                restaurantInfo.cuisine = results.restaurants[i].restaurant.cuisines;
-                restaurantInfo.ratingNum = results.restaurants[i].restaurant.user_rating.aggregate_rating;
-                restaurantInfo.ratingUsers = results.restaurants[i].restaurant.user_rating.votes;
-                restaurantInfo.ratingText = results.restaurants[i].restaurant.user_rating.rating_text;
-                console.log(restaurantInfo);
-                allRestArr.push(restaurantInfo);
-                populateTable(restaurantInfo)
+    })
 
-            }
-            console.log(allRestArr);
-            //Featured Image URL
-            console.log(results.restaurants[i].restaurant.featured_image);
-            //awesome!
 
-        });
-    }
+
     //initial load
     zomatorSearch()
 
