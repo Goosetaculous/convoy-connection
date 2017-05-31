@@ -9,10 +9,10 @@ $(document).ready(function(){
     //Initialize carousel
     $('.carousel').carousel();
     //initialize zomato
-   
+
     function populateTable(restaurantInfo){
-       var tr=$("<tr id='"+restaurantInfo.id+"'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingUsers+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
-           $("#restaurantList").append(tr)
+       var tr=$("<tr id='"+restaurantInfo.id+"' class='restaurant-name'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingUsers+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
+           $("#restaurantList").append(tr).show()
     }
 
     function getReview(res_id){
