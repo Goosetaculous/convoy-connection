@@ -10,8 +10,8 @@ $(document).ready(function(){
     //initialize zomato
 
     function populateTable(restaurantInfo){
-       var tr=$("<tr id='"+restaurantInfo.id+"' class='restaurant-name'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
-           $("#restaurantList").append(tr).show()
+       var tr=$("<tr class='restaurant-name' id='"+restaurantInfo.id+" data-longitude="+restaurantInfo.longitude+" data-latitude="+restaurantInfo.latitude+"'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
+           $("#restaurantList").append(tr)
     }
 
 
@@ -51,8 +51,6 @@ $(document).ready(function(){
     }
 
     function traverseResults(results){
-        console.log("results",results.results_shown)
-
         for (var i = 0; i< results.results_shown; i++){
             var info={
                 "id"               : results.restaurants[i].restaurant.id,
@@ -61,14 +59,15 @@ $(document).ready(function(){
                 "cuisine"          : results.restaurants[i].restaurant.cuisines,
                 "ratingNum"        : results.restaurants[i].restaurant.user_rating.aggregate_rating,
                 "ratingVotes"      : results.restaurants[i].restaurant.user_rating.votes,
-                "ratingText"       : results.restaurants[i].restaurant.user_rating.rating_text
+                "ratingText"       : results.restaurants[i].restaurant.user_rating.rating_text,
+                "latitude"         : results.restaurants[i].restaurant.location.latitude,
+                "longitude"        : results.restaurants[i].restaurant.location.longitude
             }
             populateTable(info)
         }
     }
 
     function getRestaurantImage(res_id){
-
         $.ajax({
             "async"         :   true,
             "crossDomain"   :   true,
@@ -87,13 +86,14 @@ $(document).ready(function(){
 
 
     }
-
+  
     $("#load-more").on("click",function(){
         start= start +5
         zomatorSearch();
     })
 
     $("#restaurantList").on("click", ".restaurant-name",function(){
+        console.log("TSET")
         getRestaurantImage( $(this).attr("id") )
 
     })
