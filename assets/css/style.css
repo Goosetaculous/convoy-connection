@@ -2,3 +2,13 @@
     height: 200px;
     width: 100%;
 }
+
+img {
+    height:250px;
+    width: 250px;
+}
+
+tr:hover {
+    background-color: #1de9b6;
+
+}
