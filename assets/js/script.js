@@ -14,6 +14,8 @@ $(document).ready(function(){
            $("#restaurantList").append(tr).show()
     }
 
+
+
     function getReview(res_id){
         var test = "17076027"
         $.ajax({
@@ -73,40 +75,9 @@ $(document).ready(function(){
         start= start +5
         zomatorSearch();
     })
+    
 
 
-
-    function callZomatoAPI() {
-        $.ajax(zomatoAPI).done(function(results) {
-            for(i = 0; i < 20; i++){
-                var restaurantInfo = {
-                    name: "",
-                    address: "",
-                    cuisine: "",
-                    ratingNum: "",
-                    ratingUsers: "",
-                    ratingText: ""
-                };
-
-                console.log("------------------------------------");
-                restaurantInfo.name = results.restaurants[i].restaurant.name;
-                restaurantInfo.address = results.restaurants[i].restaurant.location.address;
-                restaurantInfo.cuisine = results.restaurants[i].restaurant.cuisines;
-                restaurantInfo.ratingNum = results.restaurants[i].restaurant.user_rating.aggregate_rating;
-                restaurantInfo.ratingUsers = results.restaurants[i].restaurant.user_rating.votes;
-                restaurantInfo.ratingText = results.restaurants[i].restaurant.user_rating.rating_text;
-                console.log(restaurantInfo);
-                allRestArr.push(restaurantInfo);
-                populateTable(restaurantInfo)
-
-            }
-            console.log(allRestArr);
-            //Featured Image URL
-            console.log(results.restaurants[i].restaurant.featured_image);
-            //awesome!
-
-        });
-    }
     //initial load
     zomatorSearch()
 
