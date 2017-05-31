@@ -5,15 +5,16 @@ $(document).ready(function(){
     var zomatorKey="2764611985fca4aa535b451992f20776"
     var start = 1
     var allRestArr = [];
-
     //Initialize carousel
     $('.carousel').carousel();
     //initialize zomato
-   
+
     function populateTable(restaurantInfo){
-       var tr=$("<tr id='"+restaurantInfo.id+" data-longitude="+restaurantInfo.longitude+" data-latitude="+restaurantInfo.latitude+"'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
+       var tr=$("<tr class='restaurant-name' id='"+restaurantInfo.id+" data-longitude="+restaurantInfo.longitude+" data-latitude="+restaurantInfo.latitude+"'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
            $("#restaurantList").append(tr)
     }
+
+
 
     function getReview(res_id){
         var test = "17076027"
@@ -27,7 +28,7 @@ $(document).ready(function(){
                 "user-key"  : zomatorKey
             }
         }).done(function(results){
-            console.log(results)
+        //    console.log(results)
         })
 
     }
@@ -50,8 +51,6 @@ $(document).ready(function(){
     }
 
     function traverseResults(results){
-        console.log("results",results.results_shown)
-
         for (var i = 0; i< results.results_shown; i++){
             var info={
                 "id"               : results.restaurants[i].restaurant.id,
@@ -64,12 +63,8 @@ $(document).ready(function(){
                 "latitude"         : results.restaurants[i].restaurant.location.latitude,
                 "longitude"        : results.restaurants[i].restaurant.location.longitude
             }
-            //if( cuisineArr.indexOf(info.cuisine) !== -1 ){
-                populateTable(info)
-            //}
+            populateTable(info)
         }
-
-
     }
 
     function getRestaurantImage(res_id){
@@ -91,16 +86,14 @@ $(document).ready(function(){
 
 
     }
-
-
+  
     $("#load-more").on("click",function(){
         start= start +5
         zomatorSearch();
     })
 
-
-
     $("#restaurantList").on("click", ".restaurant-name",function(){
+        console.log("TSET")
         getRestaurantImage( $(this).attr("id") )
 
     })
@@ -111,4 +104,3 @@ $(document).ready(function(){
     zomatorSearch()
 
 });
-
