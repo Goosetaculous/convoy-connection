@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    var myLatlng = {lat: -25.363, lng: 131.044};
     var cuisineArr = ["Asian", "Bubble Tea", "Cambodian", "Cantonese", "Chinese", "Dim Sum", "Filipino", "Fusion", "Japanese", "Korean", "Laotion", "Mongolian", "Nepalese", "Ramen", "Seafood", "Sushi", "Taiwanese", "Teriyaki", "Thai", "Vietnamese"]
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
     var zomatorKey="2764611985fca4aa535b451992f20776"
@@ -10,7 +10,7 @@ $(document).ready(function(){
     //initialize zomato
 
     function populateTable(restaurantInfo){
-       var tr=$("<tr class='restaurant-name' id='"+restaurantInfo.id+" data-longitude="+restaurantInfo.longitude+" data-latitude="+restaurantInfo.latitude+"'><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
+       var tr=$("<tr class='restaurant-name' id='"+restaurantInfo.id+"' data-longitude="+restaurantInfo.longitude+" data-latitude="+restaurantInfo.latitude+"><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
            $("#restaurantList").append(tr)
     }
 
@@ -95,10 +95,9 @@ $(document).ready(function(){
     $("#restaurantList").on("click", ".restaurant-name",function(){
         console.log("TSET")
         getRestaurantImage( $(this).attr("id") )
+        console.log($(this).attr("data-latitude"), $(this).attr("data-longitude") )
 
     })
-
-
 
     //initial load
     zomatorSearch()
