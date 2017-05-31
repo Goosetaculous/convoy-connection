@@ -54,11 +54,7 @@ $(document).ready(function(){
             }
             //if( cuisineArr.indexOf(info.cuisine) !== -1 ){
                 populateTable(info)
-
             //}
-
-
-
         }
 
 
