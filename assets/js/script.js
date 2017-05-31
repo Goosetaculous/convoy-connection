@@ -5,7 +5,6 @@ $(document).ready(function(){
     var zomatorKey="2764611985fca4aa535b451992f20776"
     var start = 1
     var allRestArr = [];
-
     //Initialize carousel
     $('.carousel').carousel();
     //initialize zomato
