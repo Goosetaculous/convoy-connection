@@ -28,7 +28,7 @@ $(document).ready(function(){
                 "user-key"  : zomatorKey
             }
         }).done(function(results){
-            console.log(results)
+        //    console.log(results)
         })
 
     }
@@ -63,10 +63,27 @@ $(document).ready(function(){
                 "ratingVotes"      : results.restaurants[i].restaurant.user_rating.votes,
                 "ratingText"       : results.restaurants[i].restaurant.user_rating.rating_text
             }
-            //if( cuisineArr.indexOf(info.cuisine) !== -1 ){
-                populateTable(info)
-            //}
+            populateTable(info)
         }
+    }
+
+    function getRestaurantImage(res_id){
+
+        $.ajax({
+            "async"         :   true,
+            "crossDomain"   :   true,
+            "url"           :   zomatorAPI+ "restaurant?res_id="+res_id,
+            "method"        :   "GET",
+            "headers"       : {
+                "Accept"    : "application/json",
+                "user-key"  : zomatorKey
+            }
+        }).done(function(results){
+            console.log("TEST->",results.featured_image)
+            var img =  $("<img>").attr("src",results.featured_image )
+
+            $(".restaurant-image").html(img)
+        })
 
 
     }
@@ -77,7 +94,8 @@ $(document).ready(function(){
     })
 
     $("#restaurantList").on("click", ".restaurant-name",function(){
-        console.log($(this))
+        getRestaurantImage( $(this).attr("id") )
+
     })
 
 
