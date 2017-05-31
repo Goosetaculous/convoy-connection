@@ -68,7 +68,6 @@ $(document).ready(function(){
     }
 
     function getRestaurantImage(res_id){
-
         $.ajax({
             "async"         :   true,
             "crossDomain"   :   true,
@@ -87,7 +86,7 @@ $(document).ready(function(){
 
 
     }
-
+  
     $("#load-more").on("click",function(){
         start= start +5
         zomatorSearch();
