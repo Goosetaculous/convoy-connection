@@ -61,7 +61,7 @@ var imagereference;
 
   function geoCoder(address) {
     $.ajax({
-      url: "http://crossorigin.me/https://maps.googleapis.com/maps/api/place/textsearch/json?query="+address+"&type=restaurant&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo",
+      url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query="+address+"&type=restaurant&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo",
       method: "GET"
       }).done(function(response) {
         clearOverlays();
@@ -87,19 +87,29 @@ var imagereference;
 
     function getDetails() {
       $.ajax({
-      url: "http://crossorigin.me/https://maps.googleapis.com/maps/api/place/details/json?placeid="+request.placeId+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo",
+      url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid="+request.placeId+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo",
       method: "GET"
       }).done(function(response) {
         console.log(response);
         console.log(response.result.photos[0].photo_reference);
         imagereference = response.result.photos[0].photo_reference;
+        var reviews = response.result.reviews;
+        var current_review;
+        $("#reviews").html("");
+          for (var i = 0; i < 5; i++) {
+            console.log(reviews[i]);
+            var reviewPost = $("<div><div>");
+            reviewPost.append(reviews[i].text);
+            $("#reviews").append(reviewPost);
+            $("#reviews").append("<br/>")
+          }
         getImage();
       });
     }
 
     function getImage() {
       $.ajax({
-      url: "http://crossorigin.me/https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+imagereference+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo",
+      url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+imagereference+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo",
       method: "GET"
       }).done(function(response) {
         console.log(response);
