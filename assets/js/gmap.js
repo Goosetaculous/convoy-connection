@@ -22,6 +22,8 @@ var request = {
 var address = "";
 
 var imagereference;
+var imagereference2;
+var imagereference3;
 
   //Grabs the search results from Google API
   function queryGMapsAPI (searchterm) {
@@ -65,8 +67,6 @@ var imagereference;
       method: "GET"
       }).done(function(response) {
         clearOverlays();
-        console.log(response);
-        imageURL = response.results[0].photos[0].photo_reference;
         coords = response.results[0].geometry.location;
         request.placeId = response.results[0].place_id;
         request.location = response.results[0].geometry.location;
@@ -93,6 +93,8 @@ var imagereference;
         console.log(response);
         console.log(response.result.photos[0].photo_reference);
         imagereference = response.result.photos[0].photo_reference;
+        imagereference2 = response.result.photos[1].photo_reference;
+        imagereference3 = response.result.photos[2].photo_reference;
         var reviews = response.result.reviews;
         var current_review;
         $("#reviews").html("");
@@ -103,7 +105,10 @@ var imagereference;
             $("#reviews").append(reviewPost);
             $("#reviews").append("<br/>")
           }
-        getImage();
+          //Grabs images from Google Maps
+        $("#photo1").attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+imagereference+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo");
+        $("#photo2").attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+imagereference2+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo");
+        $("#photo3").attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+imagereference3+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo");
       });
     }
 
