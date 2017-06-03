@@ -1,5 +1,5 @@
 #map {
-    height: 200px;
+    height: 250px;
     width: 100%;
 }
 
@@ -9,6 +9,15 @@ img {
 }
 
 tr:hover {
-    background-color: #1de9b6;
+    background-color: #F0BA18;
 
+}
+body {
+        font-family: 'Shojumaru', serif;
+        color: white;
+      }
+.fixed {
+
+	position: fixed;
+	top: 0;
 }

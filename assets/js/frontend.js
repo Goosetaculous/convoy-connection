@@ -1,11 +1,19 @@
-$(document).ready(function () {
-    $('.carousel.carousel-slider').carousel({fullWidth: true});
-    $('.carousel').carousel();
-    $('.carousel').carousel('next');
-    $('.carousel').carousel('next', 3); // Move next n times.
-    $('.carousel').carousel('prev');
-    $('.carousel').carousel('prev', 4); // Move prev n times.
-    $('.carousel').carousel('set', 4);
+jQuery(document).ready(function() {
 
+	var navOffset = jQuery("div").offset().top;
+
+	jQuery(window).scroll(function() {
+
+		var scrollPos = jQuery(window).scrollTop();
+
+		if (scrollPos >= navOffset) {
+			jQuery("div").addClass("fixed");
+		} else {
+
+			jQuery("div").removeClass("fixed");
+		}
+
+
+	});
 
 });
