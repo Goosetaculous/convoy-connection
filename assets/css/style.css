@@ -1,23 +1,31 @@
-#map {
-    height: 250px;
-    width: 100%;
+header {
+    background-color: brown;
+    text-align: center;
 }
 
-img {
+body {
+    font-family: 'Shojumaru';
+    color: white;
+}
+.side-bar {
+    background-color: burlywood;
+
+    height: 100%;
+}
+
+.main-conent {
+    background-color: darkgrey;
+    height: 100%;
+}
+
+#map {
+    margin-top: 5px;
+    background-color: cornsilk;
+
     height:250px;
     width: 250px;
 }
 
-tr:hover {
-    background-color: #F0BA18;
-
-}
-body {
-        font-family: 'Shojumaru', serif;
-        color: white;
-      }
-.fixed {
-
-	position: fixed;
-	top: 0;
+.collapsible-header {
+    color: red;
 }
