@@ -1,20 +1,13 @@
-//Default map position is San Diego
-var userPosition = {
-  lat: 32.920125899999995,
-  lng: -117.10881489999998
-}
-
-//Holds Google Maps markers as they are created
+//Holds markers for map; global var to deal with Google Maps quirks
 var markersArray = [];
-
-//Default placeId query to Google Maps is San Diego
-var request = {
-  placeId: "ChIJN1t_tDeuEmsRUsoyG83frY4",
-  location: ""
-};
 
 //Initializes the map and sets center and zoom, takes user location
 function initMap() {
+  //Default map position is San Diego
+  var userPosition = {
+    lat: 32.920125899999995,
+    lng: -117.10881489999998
+  }
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
     center: new google.maps.LatLng(userPosition.lat, userPosition.lng),
@@ -23,11 +16,11 @@ function initMap() {
 }
 
 //Empties the array holding the map markers, clears the map
-function clearOverlays() {
+function clearOverlays(markersArray) {
   for (var i = 0; i < markersArray.length; i++ ) {
     markersArray[i].setMap(null);
     }
-  markersArray.length = 0;
+    markersArray.length = 0;
 }
 
 //Queries the Google Maps Places API, obtains place identity and basic details
@@ -38,13 +31,17 @@ function geoCoder(address) {
     method: "GET"
   }).done(function(response) {
 
-    //Clears the marker with each response - only one displayed at a time
-    clearOverlays();
+    //Declares request, which holds data for subsequent API calls (default placeId for testing)
+    var request = {
+      placeId: "ChIJN1t_tDeuEmsRUsoyG83frY4",
+    };
 
-    //Grabs coordinates and place ID from the first item in the response array
+    //Clears the marker with each response - only one displayed at a time
+    clearOverlays(markersArray);
+
+    //Grabs coordinates and placeID from the first item in the response array
     coords = response.results[0].geometry.location;
     request.placeId = response.results[0].place_id;
-    request.location = response.results[0].geometry.location;
 
     //Adds a marker to the map with response info
     var name = response.results[0].name;
@@ -59,24 +56,25 @@ function geoCoder(address) {
 
     //Pushes marker to a global array. Cleared out with each iteration
     markersArray.push(marker);
+    //Centers the map on the marker
     map.setCenter(marker.position);
-    getDetails();
+    getDetails(request);
   });
 }
 
 //Queries the Google Maps Places API, obtains detailed place response and adds to page
-function getDetails() {
+function getDetails(request) {
   $.ajax({
     url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid="+request.placeId+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo",
     method: "GET"
   }).done(function(response) {
     var restaurantImages = [];
-      //Assigns the photos from the Google Maps API to variables
+      //Assigns the photo URLs from the Google Maps API to array
       for (i = 0; i < 3; i++) {
         restaurantImages.push(response.result.photos[i].photo_reference);
       };
 
-    //Grabs reviews from the Google Maps API
+    //Grabs reviews from the Google Maps API and appends to the page
     var reviews = response.result.reviews;
     var current_review;
     $("#reviews").html("");
@@ -87,16 +85,18 @@ function getDetails() {
         $("#reviews").append("<br/>")
       }
 
-    //Adds images to the page
-    $("#photo1").attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+restaurantImages[0]+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo");
-    $("#photo2").attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+restaurantImages[1]+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo");
-    $("#photo3").attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+restaurantImages[2]+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo");
+    //Adds images to the page from images array
+      for (i = 0; i < 3; i++) {
+        var currentLoop = i+1;
+        $("#photo"+currentLoop).attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+restaurantImages[i]+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo");
+      };
   });
 }
 
 //Gets user's current location and initializes the map
 function getLocation() {
   if (navigator.geolocation) {
+    //Default map position is San Diego
     navigator.geolocation.getCurrentPosition(showPosition);
   } 
   else { 
@@ -106,6 +106,10 @@ function getLocation() {
 
 //Callback function to store user position coordinates and initialize map
 function showPosition(position) {
+  var userPosition = {
+    lat: 32.920125899999995,
+    lng: -117.10881489999998
+  }
   userPosition.lat = position.coords.latitude;
   userPosition.lng = position.coords.longitude;
   initMap();
