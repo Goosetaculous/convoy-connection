@@ -76,7 +76,6 @@ function getDetails(request) {
 
     //Grabs reviews from the Google Maps API and appends to the page
     var reviews = response.result.reviews;
-    var current_review;
     $("#reviews").html("");
       for (var i = 0; i < 5; i++) {
         var reviewPost = $("<div><div>");
