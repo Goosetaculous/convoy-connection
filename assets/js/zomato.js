@@ -11,7 +11,7 @@ $(document).ready(function(){
         }
     }
     var start = 1  //ctr for pagination
-    
+
     function populateTable(restaurantInfo){
         var li = $("<li>" +
             "<div class='collapsible-header row' res-id='"+restaurantInfo.id+"'>" +
