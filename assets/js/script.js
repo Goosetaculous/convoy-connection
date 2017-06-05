@@ -4,7 +4,6 @@ $(document).ready(function(){
     var start = 1
     var allRestArr = [];
     //Initialize carousel
-    $('.carousel').carousel();
     //initialize zomato
 
     function populateTable(restaurantInfo){
@@ -58,7 +57,6 @@ $(document).ready(function(){
                 "user-key"  : zomatorKey
             }
         }).done(function(results){
-
             traverseResults(results)
             getReview()
         })
@@ -106,10 +104,10 @@ $(document).ready(function(){
         zomatorSearch();
     })
 
-    $("#restaurantList").on("click", ".restaurant-name",function(){
-        console.log("TSET")
-        getRestaurantImage( $(this).attr("id") )
-        console.log($(this).attr("data-latitude"), $(this).attr("data-longitude") )
+    $(".restaurants-collection").on("click", ".collapsible-header",function(){
+        console.log($(this))
+        // getRestaurantImage( $(this).attr("id") )
+        // console.log($(this).attr("data-latitude"), $(this).attr("data-longitude") )
 
     })
 
