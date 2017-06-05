@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     function populateTable(restaurantInfo){
        var li = $("<li>" +
-           "<div class='collapsible-header row' id='"+restaurantInfo.id+"'>" +
+           "<div class='collapsible-header row' res-id='"+restaurantInfo.id+"'>" +
                 "<div class='col s4'>"+restaurantInfo.name+"</div>" +
                 "<div class='col s4'>"+restaurantInfo.address+"</div>" +
                 "<div class='col s4'>"+ restaurantInfo.cuisine+"</div>" +
@@ -28,18 +28,25 @@ $(document).ready(function(){
 
 
     function getReview(res_id){
-        var test = "17076027"
+
         $.ajax({
             "async"         :   true,
             "crossDomain"   :   true,
-            "url"           :   zomatorAPI+ "reviews?res_id="+test,
+            "url"           :   zomatorAPI+ "reviews?res_id="+res_id,
             "method"        :   "GET",
             "headers"       : {
                 "Accept"    : "application/json",
                 "user-key"  : zomatorKey
             }
         }).done(function(results){
-        //    console.log(results)
+            $("#zomato-review").html("")
+            console.log(results)
+            for(var i =0 ; i < results.reviews_shown; i++){
+                var review =  $("<p>").text(results.user_reviews[i].review.review_text)
+                    $("#zomato-review").append(review)
+
+            }
+
         })
 
     }
@@ -103,9 +110,18 @@ $(document).ready(function(){
         start= start +5
         zomatorSearch();
     })
-
+    //create the modal on click
     $(".restaurants-collection").on("click", ".collapsible-header",function(){
-        console.log($(this))
+        //$(".hiddendiv").html("")
+        //grab the id of the restaurant
+        getReview( $(this).attr("res-id") )
+
+        var modal=$("<div id='modal1' class='modal bottom-sheet'>" +
+                        "<div class='modal-content' id='restaurant-reviews'>" +
+                            "<p>A bunch of id='restaurant-reviews'</p>" +
+                        "</div>" +
+                    "</div>")
+            //$(".rating-modals").html(modal)
         // getRestaurantImage( $(this).attr("id") )
         // console.log($(this).attr("data-latitude"), $(this).attr("data-longitude") )
 

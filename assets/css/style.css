@@ -27,3 +27,12 @@ body {
 .collapsible-header {
     color: red;
 }
+
+#modal1 {
+    height: 200px;
+}
+
+#zomato-review {
+    color: blue;
+}
+
