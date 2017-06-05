@@ -1,6 +1,4 @@
 $(document).ready(function(){
-    var myLatlng = {lat: -25.363, lng: 131.044};
-    var cuisineArr = ["Asian", "Bubble Tea", "Cambodian", "Cantonese", "Chinese", "Dim Sum", "Filipino", "Fusion", "Japanese", "Korean", "Laotion", "Mongolian", "Nepalese", "Ramen", "Seafood", "Sushi", "Taiwanese", "Teriyaki", "Thai", "Vietnamese"]
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
     var zomatorKey="2764611985fca4aa535b451992f20776"
     var start = 1
@@ -10,8 +8,22 @@ $(document).ready(function(){
     //initialize zomato
 
     function populateTable(restaurantInfo){
-       var tr=$("<tr class='restaurant-name' id='"+restaurantInfo.id+"' data-longitude="+restaurantInfo.longitude+" data-latitude="+restaurantInfo.latitude+"><td>"+restaurantInfo.name+"</td><td>"+restaurantInfo.address+"</td><td>"+ restaurantInfo.cuisine+"</td><td>"+restaurantInfo.ratingNum +"</td><td>"+restaurantInfo.ratingVotes+"</td><td>"+restaurantInfo.ratingText+"</td></tr>")
-           $("#restaurantList").append(tr)
+       var li = $("<li>" +
+           "<div class='collapsible-header row' id='"+restaurantInfo.id+"'>" +
+                "<div class='col s4'>"+restaurantInfo.name+"</div>" +
+                "<div class='col s4'>"+restaurantInfo.address+"</div>" +
+                "<div class='col s4'>"+ restaurantInfo.cuisine+"</div>" +
+           "</div>" +
+           "<div class='collapsible-body row'>" +
+                "<div class='col s9' id='restaurant-men'>" +
+                    "<span>Menu</span>" +
+                "</div>" +
+                "<div class='col s3'>" +
+                    "<button data-target='modal1' class='btn' id='restaurant-rating'>Rating</button>" +
+                "</div>" +
+           "</div>" +
+           "</li>")
+           $(".restaurants-collection").append(li)
     }
 
 
@@ -35,6 +47,7 @@ $(document).ready(function(){
 
 
     function zomatorSearch(){
+
         $.ajax({
             "async"         :   true,
             "crossDomain"   :   true,
@@ -45,6 +58,7 @@ $(document).ready(function(){
                 "user-key"  : zomatorKey
             }
         }).done(function(results){
+
             traverseResults(results)
             getReview()
         })

@@ -5,9 +5,11 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo&libraries=places"></script>
     <script type="text/javascript" src="assets/js/frontend.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <script type="text/javascript" src="assets/js/gmap.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -43,61 +45,9 @@
 
     <div class="col s9 main-conent">
         <!--table-->
-        <ul class="collapsible" data-collapsible="accordion">
-            <li>
-                <div class="collapsible-header row">
-                    <div class="col s4" id="restaurant-name">id="restaurant-name"</div>
-                    <div class="col s4" id="restaurant-address">id="restaurant-address"</div>
-                    <div class="col s4" id="restaurant-phone">id="restaurant-phone"</div>
-                </div>
+        <ul class="collapsible restaurants-collection" data-collapsible="accordion">
 
-                <div class="collapsible-body row">
-                    <div class="col s9" id="restaurant-menu">
-                        <span>id="restaurant-menu"</span>
-                    </div>
-                    <div class="col s3">
-                        <button data-target="modal1" class="btn" id="restaurant-rating">#rating</button>
-                    </div>
-
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header row">
-                    <div class="col s4" id="restaurant-name">id="restaurant-name2"</div>
-                    <div class="col s4" id="restaurant-address">id="restaurant-address2"</div>
-                    <div class="col s4" id="restaurant-phone">id="restaurant-phone2"</div>
-                </div>
-
-                <div class="collapsible-body row">
-                    <div class="col s9" id="restaurant-menu">
-                        <span>id="restaurant-menu"</span>
-                    </div>
-                    <div class="col s3">
-                        <button data-target="modal1" class="btn" id="restaurant-rating">#rating</button>
-                    </div>
-
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header row">
-                    <div class="col s4" id="restaurant-name">id="restaurant-name3"</div>
-                    <div class="col s4" id="restaurant-address">id="restaurant-address3"</div>
-                    <div class="col s4" id="restaurant-phone">id="restaurant-phone3"</div>
-                </div>
-
-                <div class="collapsible-body row">
-                    <div class="col s9" id="restaurant-menu">
-                        <span>id="restaurant-menu"</span>
-                    </div>
-                    <div class="col s3">
-                        <button data-target="modal1" class="btn" id="restaurant-rating">#rating</button>
-                    </div>
-
-                </div>
-            </li>
         </ul>
-
-
     </div>
 
 </div>
@@ -105,15 +55,18 @@
 
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content" style="background-color: black" id="restaurant-reviews">
+<div class="rating-modals">
+    <div id="modal1" class="modal bottom-sheet">
+        <div class="modal-content" style="background-color: black" id="restaurant-reviews">
 
-        <p>A bunch of id="restaurant-reviews"</p>
-    </div>
-    <div class="modal-footer" style="background-color: grey">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+            <p>A bunch of id="restaurant-reviews"</p>
+        </div>
+        <div class="modal-footer" style="background-color: grey">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
     </div>
 </div>
+
 
 
 
