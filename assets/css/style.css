@@ -13,7 +13,7 @@ body {
     height: 100%;
 }
 
-.main-conent {
+.main-content {
     background-color: darkgrey;
     height: 500px;
     overflow-y:auto;
@@ -29,10 +29,14 @@ body {
 }
 
 #modal1 {
-    height: 400px;
+    height: 500px;
+    background-color: #eeeee0;
+    font-family: Droid sans;
+    color: black;
 }
 
 #zomato-review {
+<<<<<<< Updated upstream
     color: blue;
     right: 50%;
 }
@@ -40,3 +44,18 @@ body {
 #google-review {
     color: red;
 }
+=======
+    color: black;
+}
+
+div.zomatoRestaurantReview {
+    border: 2px;
+    border-bottom: 2px;
+    margin-bottom: 2px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 2px;
+}
+
+
+>>>>>>> Stashed changes

@@ -36,7 +36,7 @@ $(document).ready(function(){
         $.ajax(zomatoAjax).done(function(results){
             $("#zomato-review").html("")
             for(var i =0 ; i < results.reviews_shown; i++){
-                var review =  $("<p>").text(results.user_reviews[i].review.review_text)
+                var review =  $("<div class = 'zomatoRestaurantReview'>").text(results.user_reviews[i].review.review_text)
                 $("#zomato-review").append(review)
             }
         })
