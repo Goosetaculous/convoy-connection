@@ -1,14 +1,37 @@
+header {
+    background-color: brown;
+    text-align: center;
+}
+
+body {
+    font-family: 'Shojumaru';
+    color: white;
+}
+.side-bar {
+    background-color: burlywood;
+
+    height: 100%;
+}
+
+.main-conent {
+    background-color: darkgrey;
+    height: 500px;
+    overflow-y:auto;
+}
+
 #map {
-    height: 200px;
-    width: 100%;
-}
-
-img {
     height:250px;
-    width: 250px;
+    width: 270px;
 }
 
-tr:hover {
-    background-color: #1de9b6;
+.collapsible-header {
+    color: red;
+}
 
+#modal1 {
+    height: 400px;
+}
+
+#zomato-review {
+    color: blue;
 }
