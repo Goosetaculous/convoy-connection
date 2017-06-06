@@ -76,18 +76,24 @@ function getDetails(request) {
 
     //Grabs reviews from the Google Maps API and appends to the page
     var reviews = response.result.reviews;
-    $("#reviews").html("");
+    $("#google-review").html("");
       for (var i = 0; i < 5; i++) {
-        var reviewPost = $("<div><div>");
+        var reviewPost = $("<p></p>");
+        reviewPost.append(reviews[i].author_name);
+        reviewPost.append("<br/>");
+        reviewPost.append(reviews[i].relative_time_description);
+        reviewPost.append("<br/>");
+        reviewPost.append(reviews[i].rating);
+        reviewPost.append("<br/>");
         reviewPost.append(reviews[i].text);
-        $("#reviews").append(reviewPost);
-        $("#reviews").append("<br/>")
+        $("#google-review").append(reviewPost);
+        $("#google-review").append("<br/>")
       }
 
     //Adds images to the page from images array
-      for (i = 0; i < 3; i++) {
+      for (i = 0; i < 5; i++) {
         var currentLoop = i+1;
-        $("#photo"+currentLoop).attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+restaurantImages[i]+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo");
+        $("#carousel_"+currentLoop).attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+restaurantImages[i]+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo");
       };
   });
 }
@@ -116,8 +122,10 @@ function showPosition(position) {
 
 $(document).ready(function(){
 
-  $("#restaurantList").on("click", ".restaurant-name", function(event) {
-    var address = encodeURI($(this).closest('tr').find('td:eq(1)').text());
+  $(".restaurants-collection").on("click", ".collapsible-header",function() {
+    console.log("D");
+    var address = $(this).text();
+    console.log(address);
     geoCoder(address);
   });
 
