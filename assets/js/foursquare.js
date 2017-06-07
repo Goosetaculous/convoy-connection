@@ -6,30 +6,39 @@
 	var coordLong = "-117.1"
 	//542920000";
 	var venueIDTEST = "40a55d80f964a52020f31ee3"
-	var restname = encodeURI("dumpling inn");
+	var restName = [];
 	var foursquareAPI = "https://api.foursquare.com/v2/venues/"
-	var queryURL = "search?query=" + restname +"&limit=1&ll="+coordLat+","+coordLong+"&client_id="+clientID+"&client_secret="+clientSecret+"&v=20170601"
-	
-	 
-	
-	
-	
-	
-	function foursquareSearch(){
-		$.ajax({
+	var queryURL = "search?query=" + restName +"&limit=1&ll="+coordLat+","+coordLong+"&client_id="+clientID+"&client_secret="+clientSecret+"&v=20170601"
+	var foursquareAjax = {
 			"async"			: true,
 	      	"crossDomain"	: true,
-	      	"url"			: foursquareAPI + queryURL,
+	      	"url"			: foursquareAPI,
 	      	"method"		: "GET",
-	      	"dataType"		: "json"
-	      
-	      }).done(function(blah){
+	      	"dataType"		: "json"	
+	}
+	 
+	// function getRestaurantImage(restName){
+	// 	restName = $(".getName").closest()
+	// 	console.log(rest)
+ //        foursquareAjax.url = foursquareAPI + queryURL;
+ //        $.ajax(foursquareAjax).done(function(results){
+ //            	var results = results.response;
+	//       		var restaurantName = results.response.venues[0].name;
+	//       		var venueID = results.response.venues[0].id;
+ //        })
+ //    }
+	
+	
+	
+	function foursquareSearch(restName){
+		foursquareAjax.url = foursquareAPI + queryURL
+		$.ajax(foursquareAjax).done(function(blah){
 	      		
 	      		var results = blah.response;
 	      		var restaurantName = blah.response.venues[0].name;
 	      		var venueID = blah.response.venues[0].id;
 	      		
-	      		//getRestaurantImage(venueID);
+	      		getRestaurantImage(venueID);
 	           
 	           
 	        })
@@ -54,12 +63,21 @@
 	            	var picSuff = results.response.photos.items[i].suffix;
 	            	var picURL = picPre + "300x500" + picSuff;
 					var img =  $("<img>").attr("src",picURL);
-					$("#images").append(img)
+					$("#carousel_1").html(img)
+					$("#carousel_2").html(img)
+					$("#carousel_3").html(img)
+					$("#carousel_4").html(img)
+					$("#carousel_5").html(img)
 	        }
 
 	    })
 
 	}
+
+	$(".getName").on("click", function(){
+		foursquareSearch( $(this).text() )
+
+	})
 	
 	
 
