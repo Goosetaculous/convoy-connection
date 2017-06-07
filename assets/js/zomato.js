@@ -10,18 +10,60 @@ $(document).ready(function(){
             "user-key"  : zomatorKey
         }
     }
+    var database =firebase.database();
     var start = 1  //ctr for pagination
 
+    //Initialize firebase
+
+    $( "#search-box" ).keyup(function() {
+        if ($("#search-box").val().length > 2){
+            entreeSearch($("#search-box").val())
+        }
+    })
+
+    function entreeSearch(item){
+        //var idsContain=[]
+        var searchTerm = item.toLowerCase()
+        database.ref().once("value", function (data) {
+            data.forEach(function(snapshot){
+                var ck =  snapshot.key;
+                var cd =  snapshot.val()
+                if(foundonFirebase(cd,searchTerm)){
+                    //console.log("This <li> key should show ", ck)
+                    $("li.res-li").hide()
+                    console.log("li#"+ck)
+                    $("li#"+ck).show()
+                }
+            })
+        })
+    }
+
+    function foundonFirebase(obj,item){
+        var found=false
+        for(key in obj){
+            var entry = Object.keys(obj[key])[0].toLowerCase()
+            if(entry.includes(item)){
+                console.log( entry,item)
+
+                found =  true
+                break
+            }
+        }
+        return found
+    }
+
+
+
     function populateTable(restaurantInfo){
-        var li = $("<li>" +
+        var li = $("<li class='res-li' id='"+restaurantInfo.id+"'>" +
             "<div class='collapsible-header row' res-id='"+restaurantInfo.id+"'>" +
             "<div class='col s4 getName' data-name='"+restaurantInfo.name+"'>"+restaurantInfo.name+"</div>" +
             "<div class='col s4'>"+restaurantInfo.address+"</div>" +
             "<div class='col s4'>"+ restaurantInfo.cuisine+"</div>" +
             "</div>" +
             "<div class='collapsible-body row'>" +
-            "<div class='col s9' id='restaurant-men'>" +
-            "<span>Menu</span>" +
+            "<div class='col s9' id='restaurant-men'>Menu" +
+            "<div class='food-menu'><div class='menu-msg'></div><table><tbody id='menu-entries-"+restaurantInfo.id+"' border='1'></tbody></table></div>" +
             "</div>" +
             "<div class='col s3'>" +
             "<button data-target='modal1' class='btn' id='restaurant-rating'>Rating</button>" +
@@ -104,5 +146,6 @@ $(document).ready(function(){
 
     //initial load
     zomatorSearch()
+
 
 });

@@ -1,4 +1,5 @@
-	
+$(document).ready(function() {
+
 	var clientID ="NFNMXLJK5TGPYKM4HOC1YQ2CZLJZQG4EQBVIMF3VZXBCISAG";
 	var clientSecret ="1QAI34VV0Z4YM5EBX2ZTX5NV5T4SBXFHHUJZIWLOCRGXQ0CZ";
 	var coordLat = "32.8"
@@ -17,9 +18,7 @@
 	      	"dataType"		: "json"	
 	}
 	 
-	
-	 
-	
+
 	function foursquareSearch(){
 		
 		foursquareAjax.url = foursquareAPI + queryURL
@@ -39,7 +38,7 @@
 
 
 
-	    function getRestaurantImage(venueID){
+	function getRestaurantImage(venueID){
 	    		
 	        $.ajax({
 	            "async"			: true,
@@ -58,23 +57,12 @@
 					var currentLoop = i++;
         			$("#carousel_"+currentLoop).attr("src",picURL);
      
-	        }
+				}
 
-	    })
-
+	    	})
 	}
 
-	function getRestaurantName(){
-		$('.getName').each(function(){
-			restText = $(".getName").attr("data-name");
-			restName.push(restText)
-		})
-    
-       } 
-	
-	
-	
-
+})
 
 
 	
