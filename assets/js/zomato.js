@@ -64,7 +64,7 @@ $(document).ready(function(){
             "<div class='food-menu'><div class='menu-msg'></div><table><tbody id='menu-entries-"+restaurantInfo.id+"' border='1'></tbody></table></div>" +
             "</div>" +
             "<div class='col s3'>" +
-            "<button data-target='modal1' class='btn' id='restaurant-rating'>Rating</button>" +
+            "<button data-target='modal1' class='btn' id='restaurant-rating'>Reviews</button>" +
             "</div>" +
             "</div>" +
             "</li>")

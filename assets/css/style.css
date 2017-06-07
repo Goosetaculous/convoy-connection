@@ -1,15 +1,19 @@
 header {
     font-family: 'Shojumaru';
-    background-color: brown;
+    background-color: #fe040A;
     text-align: center;
+    font-size: 36px;
+    color: white
+
 }
 
 body {
     font-family: 'Roboto';
-    color: white;
+    color: #650003;
+    background-color: #A00004;
 }
 .side-bar {
-    background-color: burlywood;
+    background-color: #ffaa00;
 
     height: 100%;
 
@@ -19,7 +23,7 @@ body {
 
 
 .main-content {
-    background-color: darkgrey;
+    background-color: #650003;
     height: 500px;
     overflow-y:auto;
 }
@@ -31,15 +35,16 @@ body {
 }
 
 .collapsible-header {
-    color: red;
+    color: #650003;
+    background-color: #ffAAAC;
 
 }
 
 #modal1 {
     height: 500px;
-    background-color: #eeeee0;
+    background-color: #ffaaac;
     font-family: 'Roboto';
-    color: black;
+    color: #650003;
     position: fixed;
    /* display: inline-block;*/
     /*top: 25%;
@@ -66,7 +71,7 @@ body {
     box-sizing: border-box;*/
     
    
-    width: 200px
+    
 
 }
 
@@ -91,7 +96,7 @@ body {
 
 
 #restaurant-men {
-    background-color: #00e5ff;
+    background-color: #ffd47e;
 }
 
 .food-menu {
