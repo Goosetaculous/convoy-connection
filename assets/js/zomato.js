@@ -42,10 +42,10 @@ $(document).ready(function(){
                 var zomText = results.user_reviews[i].review.review_text
                 var zomUserName = results.user_reviews[i].review.user.name
                 var zomDate = results.user_reviews[i].review.review_time_friendly
-                zomReviews.append(zomRating);
+                zomReviews.append(zomRating + " out of 5 stars ");
                 zomReviews.append(zomText);
-                zomReviews.append(zomUserName);
-                zomReviews.append(zomDate);
+                zomReviews.append(zomUserName + "  " + zomDate);
+                //zomReviews.append(zomDate);
                 $("#zomato-review").append(zomReviews);           
             }
         })
