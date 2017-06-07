@@ -20,8 +20,8 @@ $(document).ready(function(){
             "<div class='col s4'>"+ restaurantInfo.cuisine+"</div>" +
             "</div>" +
             "<div class='collapsible-body row'>" +
-            "<div class='col s9' id='restaurant-men'>" +
-            "<div class='food-menu'>Menu</div>" +
+            "<div class='col s9' id='restaurant-men'>Menu" +
+            "<div class='food-menu'><div class='menu-msg'></div><table><tbody id='menu-entries-"+restaurantInfo.id+"' border='1'></tbody></table></div>" +
             "</div>" +
             "<div class='col s3'>" +
             "<button data-target='modal1' class='btn' id='restaurant-rating'>Rating</button>" +
