@@ -15,35 +15,36 @@ $(document).ready(function(){
 
     //Initialize firebase
 
-    function entreeSearch(){
+    $( "#search-box" ).keyup(function() {
+        if ($("#search-box").val().length > 2){
+            entreeSearch($("#search-box").val())
+        }
+    })
 
-        var test_item="Curd"
-        var idsContain=[]
+    function entreeSearch(item){
+        //var idsContain=[]
+        var searchTerm = item.toLowerCase()
         database.ref().once("value", function (data) {
             data.forEach(function(snapshot){
                 var ck =  snapshot.key;
                 var cd =  snapshot.val()
-                if(findonFB(cd,test_item)){
-                    console.log("TEST")
+                if(foundonFirebase(cd,searchTerm)){
+                    //console.log("This <li> key should show ", ck)
                     $("li.res-li").hide()
-
-                    $("li#"+ck).show(2000)
-                    console.log(ck)
+                    console.log("li#"+ck)
+                    $("li#"+ck).show()
                 }
-
             })
         })
-
     }
 
-
-
-    function findonFB(obj,item){
+    function foundonFirebase(obj,item){
         var found=false
         for(key in obj){
-            var entry = Object.keys(obj[key])[0]
+            var entry = Object.keys(obj[key])[0].toLowerCase()
             if(entry.includes(item)){
-                console.log("ENTRY",entry)
+                console.log( entry,item)
+
                 found =  true
                 break
             }
@@ -145,7 +146,7 @@ $(document).ready(function(){
 
     //initial load
     zomatorSearch()
-    entreeSearch()
+
 
 });
 
