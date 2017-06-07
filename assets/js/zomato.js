@@ -35,6 +35,7 @@ $(document).ready(function(){
         zomatoAjax.url = zomatorAPI+ "reviews?res_id="+res_id
         $.ajax(zomatoAjax).done(function(results){
             $("#zomato-review").html("")
+
             for(var i = 0 ; i < 5; i++){
                 var zomReviews = $("<p class = 'zomatoRestaurantReview'>")
                 var zomRating = results.user_reviews[i].review.rating
@@ -50,11 +51,10 @@ $(document).ready(function(){
         })
     }
 
-    function zomatorSearch(){
+  function zomatorSearch(){
         zomatoAjax.url = zomatorAPI+ "search?entity_id=302&entity_type=city&q=92111&start="+start+"&count=5"
         $.ajax(zomatoAjax).done(function(results){
             traverseResults(results)
-            //getReview()
         })
     }
     function traverseResults(results){
@@ -104,4 +104,6 @@ $(document).ready(function(){
 
     //initial load
     zomatorSearch()
+
 });
+
