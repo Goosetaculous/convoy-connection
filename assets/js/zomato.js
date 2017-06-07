@@ -87,13 +87,16 @@ $(document).ready(function(){
                 var zomReviews = $("<div class = 'zomatoRestaurantReview'>")
                 var zomRating = $("<div class = 'zomatoRating'>").html(results.user_reviews[i].review.rating + " out of 5 stars ")
                 var zomUserName = $("<div class = 'zomatoUserName'>").html(results.user_reviews[i].review.user.name)
-                var zomText = $("<div class = 'zomatoReviewText'>").html(results.user_reviews[i].review.review_text)
                 var zomDate = $("<div class = 'zomatoDate'>").html(results.user_reviews[i].review.review_time_friendly)
+                var zomText = $("<div class = 'zomatoReviewText'>").html(results.user_reviews[i].review.review_text)
+                
                 zomReviews.append(zomRating);
                 zomReviews.append(zomUserName);
-                zomReviews.append(zomText);
                 zomReviews.append(zomDate);
-                //$("#zomato-review").append(zomReviews);           
+                zomReviews.append(zomText);
+                zomReviews.append("<br>");
+                
+                $("#zomato-review").append(zomReviews);           
             }
         })
     }
