@@ -60,51 +60,7 @@
 	    })
 
 	}
-	//On click of li item
-	getRestaurantImage()
-	function getDetails(request) {
-	  $.ajax({
-	    url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid="+request.placeId+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo",
-	    method: "GET"
-	  }).done(function(response) {
-	    var restaurantImages = [];
-	      //Assigns the photo URLs from the Google Maps API to array
-	      for (i = 0; i < 3; i++) {
-	        restaurantImages.push(response.result.photos[i].photo_reference);
-	      };
-
-	    //Grabs reviews from the Google Maps API and appends to the page
-	    var reviews = response.result.reviews;
-	    $("#google-review").html("");
-	      for (var i = 0; i < 5; i++) {
-	        var reviewPost = $("<p></p>");
-	        reviewPost.append(reviews[i].author_name);
-	        reviewPost.append("<br/>");
-	        reviewPost.append(reviews[i].relative_time_description);
-	        reviewPost.append("<br/>");
-	        reviewPost.append(reviews[i].rating);
-	        reviewPost.append("<br/>");
-	        reviewPost.append(reviews[i].text);
-	        $("#google-review").append(reviewPost);
-	        $("#google-review").append("<br/>")
-	      }
-
-	    //Adds images to the page from images array
-	      for (i = 0; i < 5; i++) {
-	        var currentLoop = i+1;
-	        $("#carousel_"+currentLoop).attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+restaurantImages[i]+"&key=AIzaSyB6qH6xeCW77jF6Q78CuIGvbV001Io6pPo");
-	      };
-	  });
-	}
-
-
 	
-
-
-	    
-
-
-
 	
 
 
