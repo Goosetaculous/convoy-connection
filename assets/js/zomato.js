@@ -21,7 +21,7 @@ $(document).ready(function(){
             "</div>" +
             "<div class='collapsible-body row'>" +
             "<div class='col s9' id='restaurant-men'>" +
-            "<span>Menu</span>" +
+            "<div class='food-menu'>Menu</div>" +
             "</div>" +
             "<div class='col s3'>" +
             "<button data-target='modal1' class='btn' id='restaurant-rating'>Rating</button>" +

@@ -36,7 +36,6 @@ body {
 }
 
 #zomato-review {
-<<<<<<< Updated upstream
     color: blue;
     right: 50%;
 }
@@ -44,8 +43,13 @@ body {
 #google-review {
     color: red;
 }
-=======
-    color: black;
+
+#restaurant-men {
+    background-color: #00e5ff;
+}
+
+.food-menu {
+    height: 200px;
 }
 
 div.zomatoRestaurantReview {
@@ -56,6 +60,3 @@ div.zomatoRestaurantReview {
     border-color: black;
     border-radius: 2px;
 }
-
-
->>>>>>> Stashed changes
