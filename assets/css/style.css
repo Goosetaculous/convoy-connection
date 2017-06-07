@@ -119,5 +119,13 @@ div.zomatoRestaurantReview {
 
 
 input {
-    color: #0D47A1;
+    color: #563A00;
+    
+}
+
+#search-box{
+
+    background-color: #ffE1a6;
+    border-radius: 15px;
+    padding-left: 25px;
 }
