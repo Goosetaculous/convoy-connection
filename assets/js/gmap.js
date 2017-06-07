@@ -123,9 +123,9 @@ function showPosition(position) {
 $(document).ready(function(){
 
   $(".restaurants-collection").on("click", ".collapsible-header",function() {
-    console.log("D");
+    //console.log("D");
     var address = $(this).text();
-    console.log(address);
+    //console.log(address);
     geoCoder(address);
   });
 
