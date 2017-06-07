@@ -23,16 +23,21 @@ $(document).ready(function(){
 
     function entreeSearch(item){
         //var idsContain=[]
+        $("li.res-li").hide()
         var searchTerm = item.toLowerCase()
         database.ref().once("value", function (data) {
             data.forEach(function(snapshot){
                 var ck =  snapshot.key;
                 var cd =  snapshot.val()
                 if(foundonFirebase(cd,searchTerm)){
+                    console.log("Found")
                     //console.log("This <li> key should show ", ck)
-                    $("li.res-li").hide()
+                    //<li class='res-li' id='"+restaurantInfo.id+"'
+
                     console.log("li#"+ck)
-                    $("li#"+ck).show()
+                    $('li#'+ck).show()
+                }else {
+                    console.log("Not Found")
                 }
             })
         })
