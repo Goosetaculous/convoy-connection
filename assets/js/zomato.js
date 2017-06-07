@@ -10,10 +10,51 @@ $(document).ready(function(){
             "user-key"  : zomatorKey
         }
     }
+    var database =firebase.database();
     var start = 1  //ctr for pagination
 
+    //Initialize firebase
+
+    function entreeSearch(){
+
+        var test_item="Curd"
+        var idsContain=[]
+        database.ref().once("value", function (data) {
+            data.forEach(function(snapshot){
+                var ck =  snapshot.key;
+                var cd =  snapshot.val()
+                if(findonFB(cd,test_item)){
+                    console.log("TEST")
+                    $("li.res-li").hide()
+
+                    $("li#"+ck).show(2000)
+                    console.log(ck)
+                }
+
+            })
+        })
+
+    }
+
+
+
+    function findonFB(obj,item){
+        var found=false
+        for(key in obj){
+            var entry = Object.keys(obj[key])[0]
+            if(entry.includes(item)){
+                console.log("ENTRY",entry)
+                found =  true
+                break
+            }
+        }
+        return found
+    }
+
+
+
     function populateTable(restaurantInfo){
-        var li = $("<li>" +
+        var li = $("<li class='res-li' id='"+restaurantInfo.id+"'>" +
             "<div class='collapsible-header row' res-id='"+restaurantInfo.id+"'>" +
             "<div class='col s4'>"+restaurantInfo.name+"</div>" +
             "<div class='col s4'>"+restaurantInfo.address+"</div>" +
@@ -104,6 +145,7 @@ $(document).ready(function(){
 
     //initial load
     zomatorSearch()
+    entreeSearch()
 
 });
 

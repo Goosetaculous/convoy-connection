@@ -67,3 +67,7 @@ div.zomatoRestaurantReview {
     border-color: black;
     border-radius: 2px;
 }
+
+input {
+    color: #0D47A1;
+}

@@ -1,6 +1,5 @@
 $(document).ready(function(){
     // Initialize Firebase
-    MAX_COLUMNS=3
     var config = {
         apiKey: "AIzaSyCYUONSm_e9oy0i8PJPaKIbA-cXEXHCqwk",
         authDomain: "convoyconnection.firebaseapp.com",
@@ -9,7 +8,8 @@ $(document).ready(function(){
         storageBucket: "convoyconnection.appspot.com",
         messagingSenderId: "682523460431"
     };
-    firebase.initializeApp(config);
+    localStorage.setItem("firebase-config",JSON.stringify(config))
+    firebase.initializeApp(JSON.parse(localStorage.getItem("firebase-config")));
     var database =firebase.database();
 
     function adjustTDMenu(key,menu){
@@ -24,12 +24,8 @@ $(document).ready(function(){
     $(".restaurants-collection").on("click", ".collapsible-header",function(){
         var max_columns=2
         var count=0
-
         var selector = "#menu-entries-"+ $(this).attr("res-id")
         $(selector).html("")
-
-
-
         database.ref( $(this).attr("res-id") +"/").on("value",function(menu) {
             if (!menu.val()){
                 $('.menu-msg').html("Menu coming soon")
@@ -47,20 +43,11 @@ $(document).ready(function(){
                     }else{
                         $(selector+" tr:first").append("<td>"+content+"</td>")
                         count++
-                        console.log("count: ",count)
-
                     }
                 }
-
             }
-
-
-
-
         })
     })
-
-
 })
 
 
