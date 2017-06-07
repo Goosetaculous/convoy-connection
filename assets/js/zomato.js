@@ -137,6 +137,7 @@ $(document).ready(function(){
     //create the modal on click
     $(".restaurants-collection").on("click", ".collapsible-header",function(){
         getReview( $(this).attr("res-id") )
+        foursquareSearch();
         var modal=$("<div id='modal1' class='modal bottom-sheet'>" +
             "<div class='modal-content' id='restaurant-reviews'>" +
             "<p>A bunch of id='restaurant-reviews'</p>" +
