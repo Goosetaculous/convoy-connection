@@ -17,8 +17,10 @@ $(document).ready(function(){
 
     $( "#search-box" ).keyup(function() {
         if ($("#search-box").val().length > 2){
+            $('#no-results' ).hide()
             entreeSearch($("#search-box").val())
         }else if ($("#search-box").val().length === 0) {
+            $('#no-results' ).hide()
             $("li.res-li").show()
         }
     })
@@ -33,6 +35,8 @@ $(document).ready(function(){
                 var cd =  snapshot.val()
                 if(foundonFirebase(cd,searchTerm)){
                     $('li#'+ck).show()
+                }else {
+                    $('#no-results' ).show()
                 }
             })
         })
