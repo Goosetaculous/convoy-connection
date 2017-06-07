@@ -18,11 +18,13 @@ $(document).ready(function(){
     $( "#search-box" ).keyup(function() {
         if ($("#search-box").val().length > 2){
             entreeSearch($("#search-box").val())
+        }else if ($("#search-box").val().length === 0) {
+            $("li.res-li").show()
         }
     })
 
     function entreeSearch(item){
-        //var idsContain=[]
+
         $("li.res-li").hide()
         var searchTerm = item.toLowerCase()
         database.ref().once("value", function (data) {
@@ -30,14 +32,7 @@ $(document).ready(function(){
                 var ck =  snapshot.key;
                 var cd =  snapshot.val()
                 if(foundonFirebase(cd,searchTerm)){
-                    console.log("Found")
-                    //console.log("This <li> key should show ", ck)
-                    //<li class='res-li' id='"+restaurantInfo.id+"'
-
-                    console.log("li#"+ck)
                     $('li#'+ck).show()
-                }else {
-                    console.log("Not Found")
                 }
             })
         })
@@ -48,8 +43,6 @@ $(document).ready(function(){
         for(key in obj){
             var entry = Object.keys(obj[key])[0].toLowerCase()
             if(entry.includes(item)){
-                console.log( entry,item)
-
                 found =  true
                 break
             }
