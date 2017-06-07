@@ -15,7 +15,7 @@ $(document).ready(function(){
     function populateTable(restaurantInfo){
         var li = $("<li>" +
             "<div class='collapsible-header row' res-id='"+restaurantInfo.id+"'>" +
-            "<div class='col s4 getName'>"+restaurantInfo.name+"</div>" +
+            "<div class='col s4'>"+restaurantInfo.name+"</div>" +
             "<div class='col s4'>"+restaurantInfo.address+"</div>" +
             "<div class='col s4'>"+ restaurantInfo.cuisine+"</div>" +
             "</div>" +
@@ -106,4 +106,3 @@ $(document).ready(function(){
     zomatorSearch()
 
 });
-
