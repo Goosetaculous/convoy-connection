@@ -79,16 +79,16 @@ $(document).ready(function(){
             $("#zomato-review").html("")
 
             for(var i = 0 ; i < 5; i++){
-                var zomReviews = $("<p class = 'zomatoRestaurantReview'>")
-                var zomRating = results.user_reviews[i].review.rating
-                var zomText = results.user_reviews[i].review.review_text
-                var zomUserName = results.user_reviews[i].review.user.name
-                var zomDate = results.user_reviews[i].review.review_time_friendly
-                zomReviews.append(zomRating + " out of 5 stars ");
+                var zomReviews = $("<div class = 'zomatoRestaurantReview'>")
+                var zomRating = $("<div class = 'zomatoRating'>").html(results.user_reviews[i].review.rating + " out of 5 stars ")
+                var zomUserName = $("<div class = 'zomatoUserName'>").html(results.user_reviews[i].review.user.name)
+                var zomText = $("<div class = 'zomatoReviewText'>").html(results.user_reviews[i].review.review_text)
+                var zomDate = $("<div class = 'zomatoDate'>").html(results.user_reviews[i].review.review_time_friendly)
+                zomReviews.append(zomRating);
+                zomReviews.append(zomUserName);
                 zomReviews.append(zomText);
-                zomReviews.append(zomUserName + "  " + zomDate);
-                //zomReviews.append(zomDate);
-                $("#zomato-review").append(zomReviews);           
+                zomReviews.append(zomDate);
+                //$("#zomato-review").append(zomReviews);           
             }
         })
     }
@@ -137,7 +137,6 @@ $(document).ready(function(){
     //create the modal on click
     $(".restaurants-collection").on("click", ".collapsible-header",function(){
         getReview( $(this).attr("res-id") )
-        foursquareSearch();
         var modal=$("<div id='modal1' class='modal bottom-sheet'>" +
             "<div class='modal-content' id='restaurant-reviews'>" +
             "<p>A bunch of id='restaurant-reviews'</p>" +
