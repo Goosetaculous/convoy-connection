@@ -6,7 +6,7 @@
 	var coordLong = "-117.1"
 	//542920000";
 	var venueIDTEST = "40a55d80f964a52020f31ee3"
-	var restName = [];
+	var restName = encodeURI("rakiraki");
 	var foursquareAPI = "https://api.foursquare.com/v2/venues/"
 	var queryURL = "search?query=" + restName +"&limit=1&ll="+coordLat+","+coordLong+"&client_id="+clientID+"&client_secret="+clientSecret+"&v=20170601"
 	var foursquareAjax = {
@@ -17,23 +17,15 @@
 	      	"dataType"		: "json"	
 	}
 	 
-	// function getRestaurantImage(restName){
-	// 	restName = $(".getName").closest()
-	// 	console.log(rest)
- //        foursquareAjax.url = foursquareAPI + queryURL;
- //        $.ajax(foursquareAjax).done(function(results){
- //            	var results = results.response;
-	//       		var restaurantName = results.response.venues[0].name;
-	//       		var venueID = results.response.venues[0].id;
- //        })
- //    }
 	
+	 
 	
-	
-	function foursquareSearch(restName){
+	function foursquareSearch(){
+		
 		foursquareAjax.url = foursquareAPI + queryURL
+		console.log(foursquareAjax.url)
 		$.ajax(foursquareAjax).done(function(blah){
-	      		
+	      		console.log(blah)
 	      		var results = blah.response;
 	      		var restaurantName = blah.response.venues[0].name;
 	      		var venueID = blah.response.venues[0].id;
@@ -61,23 +53,25 @@
 	            for(i = 0; i < results.response.photos.items.length; i++){
 	            	var picPre = results.response.photos.items[i].prefix;
 	            	var picSuff = results.response.photos.items[i].suffix;
-	            	var picURL = picPre + "300x500" + picSuff;
-					var img =  $("<img>").attr("src",picURL);
-					$("#carousel_1").html(img)
-					$("#carousel_2").html(img)
-					$("#carousel_3").html(img)
-					$("#carousel_4").html(img)
-					$("#carousel_5").html(img)
+	            	var picURL = picPre + "750x750" + picSuff;
+					
+					var currentLoop = i++;
+        			$("#carousel_"+currentLoop).attr("src",picURL);
+     
 	        }
 
 	    })
 
 	}
 
-	$(".getName").on("click", function(){
-		foursquareSearch( $(this).text() )
-
-	})
+	function getRestaurantName(){
+		$('.getName').each(function(){
+			restText = $(".getName").attr("data-name");
+			restName.push(restText)
+		})
+    
+       } 
+	
 	
 	
 
