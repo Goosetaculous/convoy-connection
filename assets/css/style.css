@@ -73,13 +73,16 @@ img {
     transform: translate(-50%, -50%);*/
     
 }
+#restaurant-reviews{
+    
+}
 
 #zomato-review {
 
 
 
     color: red;
-    width: 200px;
+    width: 100%;
     display: inline-block;
     padding: 10px;
     border: solid 2px black;

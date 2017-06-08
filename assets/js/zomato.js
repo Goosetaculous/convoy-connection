@@ -63,7 +63,8 @@ $(document).ready(function(){
     function populateTable(restaurantInfo){
         var li = $("<li class='res-li' id='"+restaurantInfo.id+"'>" +
             "<div class='collapsible-header row' res-id='"+restaurantInfo.id+"'>" +
-            "<div class='col s4 getName' data-name='"+restaurantInfo.name+"'>"+restaurantInfo.name+"</div>" +
+            "<div class='col s2 getName' data-name='"+restaurantInfo.name+"'>"+restaurantInfo.name+"</div>" +
+            "<div class='col s2'>"+restaurantInfo.ratingNum+"</div>"+
             "<div class='col s4'>"+restaurantInfo.address+"</div>" +
             "<div class='col s4'>"+ restaurantInfo.cuisine+"</div>" +
             "</div>" +
@@ -84,15 +85,18 @@ $(document).ready(function(){
         $.ajax(zomatoAjax).done(function(results){
             $("#zomato-review").html("")
             for(var i = 0 ; i < 5; i++){
-                var zomReviews = $("<p class = 'zomatoRestaurantReview'>")
-                var zomRating = results.user_reviews[i].review.rating
-                var zomText = results.user_reviews[i].review.review_text
-                var zomUserName = results.user_reviews[i].review.user.name
-                var zomDate = results.user_reviews[i].review.review_time_friendly
+                var zomReviews = $("<div class = 'zomatoRestaurantReview'>")
+                var zomRating = $("<div class = 'zomatoRating'>").html(results.user_reviews[i].review.rating + " out of 5 stars ")
+                var zomUserName = $("<div class = 'zomatoUserName'>").html(results.user_reviews[i].review.user.name)
+                var zomDate = $("<div class = 'zomatoDate'>").html(results.user_reviews[i].review.review_time_friendly)
+                var zomText = $("<div class = 'zomatoReviewText'>").html(results.user_reviews[i].review.review_text)
+                
                 zomReviews.append(zomRating);
-                zomReviews.append(zomText);
                 zomReviews.append(zomUserName);
                 zomReviews.append(zomDate);
+                zomReviews.append(zomText);
+                zomReviews.append("<br>");
+                
                 $("#zomato-review").append(zomReviews);           
             }
         })
