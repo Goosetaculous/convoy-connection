@@ -27,7 +27,7 @@ body {
 
 .main-content {
     background-color: #650003;
-    height: 500px;
+    height: 400px !important;
     overflow-y:auto;
 }
 
