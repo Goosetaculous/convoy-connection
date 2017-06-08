@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+<<<<<<< HEAD
     
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
     var zomatorKey="2764611985fca4aa535b451992f20776"
@@ -111,5 +112,6 @@ $(document).ready(function(){
     //initial load
     zomatorSearch()
 
+=======
+>>>>>>> a35e8ddaaaec2e6fd2e89f11e73f1720ed3e9a21
 });
-
