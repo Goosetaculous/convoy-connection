@@ -93,7 +93,6 @@ $(document).ready(function(){
             $("#zomato-review").html("")
             for(var i = 0 ; i  < results.user_reviews.length; i++){
                 var zomReviews = $("<div class = 'zomatoRestaurantReview'>")
-                var zomRating = $("<div class = 'zomatoRating'>").html("No user rating given")
                 var zomRating = $("<div class = 'zomatoRating'>").html(results.user_reviews[i].review.rating + " out of 5 stars ")  
                 var zomUserName = $("<div class = 'zomatoUserName'>").html(results.user_reviews[i].review.user.name)
                 var zomDate = $("<div class = 'zomatoDate'>").html(results.user_reviews[i].review.review_time_friendly)
