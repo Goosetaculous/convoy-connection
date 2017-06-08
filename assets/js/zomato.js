@@ -149,6 +149,13 @@ $(document).ready(function(){
         start= start +5
         zomatorSearch();
     })
+
+    function loadAll(){
+        start= start +5
+        zomatorSearch();
+
+    }
+
     //create the modal on click
     $(".restaurants-collection").on("click", ".collapsible-header",function(){
         getReview( $(this).attr("res-id") )
@@ -158,8 +165,14 @@ $(document).ready(function(){
             "</div>" +
             "</div>")
     })
-
-    //initial load
     zomatorSearch()
+    //initial load
+    for (var i = 0; i <=52; i++){
+        loadAll()
+
+    }
+
+    //zomatorSearch()
+
 
 });

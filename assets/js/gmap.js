@@ -72,7 +72,6 @@ function getDetails(request) {
       //Assigns the photo URLs from the Google Maps API to array
       for (i = 0; i < 7; i++) {
         if (response.result.photos[i].photo_reference !== undefined) {
-          console.log(response.result.photos[i].photo_reference);
           restaurantImages.push(response.result.photos[i].photo_reference);
         }
       };
@@ -127,7 +126,7 @@ $(document).ready(function(){
 
   $(".restaurants-collection").on("click", ".collapsible-header",function() {
     var address = $(this).children();
-    var address = encodeURI(address[1].innerText);
+    var address = encodeURI(address[2].innerText);
     console.log(address);
     geoCoder(address);
   });
