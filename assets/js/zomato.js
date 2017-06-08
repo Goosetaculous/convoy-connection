@@ -89,7 +89,6 @@ $(document).ready(function(){
     function getReview(res_id){
         zomatoAjax.url = zomatorAPI+ "reviews?res_id="+res_id
         $.ajax(zomatoAjax).done(function(results){
-            console.log(results)
             $("#zomato-review").html("")
             for(var i = 0 ; i  < results.user_reviews.length; i++){
                 var zomReviews = $("<div class = 'zomatoRestaurantReview'>")
