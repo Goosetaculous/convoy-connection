@@ -17,7 +17,6 @@ $(document).ready(function(){
 
     $( "#search-box" ).keyup(function() {
         if ($("#search-box").val().length > 2){
-
             entreeSearch($("#search-box").val())
         }else if ($("#search-box").val().length === 0) {
             $('#no-results' ).hide()
