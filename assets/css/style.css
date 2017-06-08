@@ -25,6 +25,7 @@ header {
     position: relative;
     top: 50px;
     border-radius: 20px;
+    margin: auto;
     
     background-color: #fe040A;
     text-align: center;
