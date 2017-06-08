@@ -8,15 +8,44 @@ $(document).ready(function(){
         storageBucket: "convoyconnection.appspot.com",
         messagingSenderId: "682523460431"
     };
-    firebase.initializeApp(config);
+    localStorage.setItem("firebase-config",JSON.stringify(config))
+    firebase.initializeApp(JSON.parse(localStorage.getItem("firebase-config")));
     var database =firebase.database();
+
+    function adjustTDMenu(key,menu){
+        var item=""
+        var food = Object.keys(menu[key])
+        var price = Object.values(menu[key])
+            item = food + " " + price
+        return item
+    }
+
+
     $(".restaurants-collection").on("click", ".collapsible-header",function(){
+        var max_columns=2
+        var count=0
+        var selector = "#menu-entries-"+ $(this).attr("res-id")
+        $(selector).html("")
         database.ref( $(this).attr("res-id") +"/").on("value",function(menu) {
-            console.log(menu.val())
+            if (!menu.val()){
+                $('.menu-msg').html("Menu coming soon")
+            }else{
+                $('.menu-msg').html("")
+                for(key in menu.val()){
+                    var content = adjustTDMenu(key,menu.val())
+                    if(count == max_columns || !$(selector).children().length){
+                        $(selector).append("<tr>")
+                        count=0
+                    }
+                    if(count!=max_columns){
+                        $(selector+" tr:last").append("<td>"+content+"</td>")
+                        count++
+                    }else{
+                        $(selector+" tr:first").append("<td>"+content+"</td>")
+                        count++
+                    }
+                }
+            }
         })
     })
-
-
 })
-
-

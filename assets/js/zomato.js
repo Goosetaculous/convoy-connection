@@ -10,21 +10,69 @@ $(document).ready(function(){
             "user-key"  : zomatorKey
         }
     }
+
+    var database =firebase.database();
     var start = 1  //ctr for pagination
 
+    //Initialize firebase
+
+    $( "#search-box" ).keyup(function() {
+        if ($("#search-box").val().length > 2){
+            entreeSearch($("#search-box").val())
+        }else if ($("#search-box").val().length === 0) {
+            $('#no-results' ).hide()
+            $("li.res-li").show()
+        }
+    })
+
+    function entreeSearch(item){
+
+        $("li.res-li").hide()
+        var searchTerm = item.toLowerCase()
+        database.ref().once("value", function (data) {
+            data.forEach(function(snapshot){
+                var ck =  snapshot.key;
+                var cd =  snapshot.val()
+                if(foundonFirebase(cd,searchTerm)){
+                    $('li#'+ck).show()
+                }
+                if( $(".restaurants-collection li:visible").length <=1){
+                    $('#no-results').show()
+                }else {
+                    $('#no-results').hide()
+                }
+            })
+        })
+    }
+
+    function foundonFirebase(obj,item){
+        var found=false
+        for(key in obj){
+            var entry = Object.keys(obj[key])[0].toLowerCase()
+            if(entry.includes(item)){
+                // $('#no-results').hide()
+                found =  true
+                break
+            }
+        }
+        return found
+    }
+
+
+
     function populateTable(restaurantInfo){
-        var li = $("<li>" +
+        var li = $("<li class='res-li' id='"+restaurantInfo.id+"'>" +
             "<div class='collapsible-header row' res-id='"+restaurantInfo.id+"'>" +
-            "<div class='col s4'>"+restaurantInfo.name+"</div>" +
+            "<div class='col s4 getName' data-name='"+restaurantInfo.name+"'>"+restaurantInfo.name+"</div>" +
             "<div class='col s4'>"+restaurantInfo.address+"</div>" +
             "<div class='col s4'>"+ restaurantInfo.cuisine+"</div>" +
             "</div>" +
             "<div class='collapsible-body row'>" +
-            "<div class='col s9' id='restaurant-men'>" +
-            "<span>Menu</span>" +
+            "<div class='col s9' id='restaurant-men'>Menu" +
+            "<div class='food-menu'><div class='menu-msg'></div><table><tbody id='menu-entries-"+restaurantInfo.id+"' border='1'></tbody></table></div>" +
             "</div>" +
             "<div class='col s3'>" +
-            "<button data-target='modal1' class='btn' id='restaurant-rating'>Rating</button>" +
+            "<button data-target='modal1' class='btn' id='restaurant-rating'>Reviews</button>" +
             "</div>" +
             "</div>" +
             "</li>")
@@ -35,17 +83,30 @@ $(document).ready(function(){
         zomatoAjax.url = zomatorAPI+ "reviews?res_id="+res_id
         $.ajax(zomatoAjax).done(function(results){
             $("#zomato-review").html("")
-            for(var i =0 ; i < results.reviews_shown; i++){
-                var review =  $("<p>").text(results.user_reviews[i].review.review_text)
-                $("#zomato-review").append(review)
+            for(var i = 0 ; i < 5; i++){
+                var zomReviews = $("<p class = 'zomatoRestaurantReview'>")
+                var zomRating = results.user_reviews[i].review.rating
+                var zomText = results.user_reviews[i].review.review_text
+                var zomUserName = results.user_reviews[i].review.user.name
+                var zomDate = results.user_reviews[i].review.review_time_friendly
+                zomReviews.append(zomRating);
+                zomReviews.append(zomText);
+                zomReviews.append(zomUserName);
+                zomReviews.append(zomDate);
+                $("#zomato-review").append(zomReviews);           
             }
         })
     }
+
+    /**
+     * Call the zomato API
+     *
+     */
+
     function zomatorSearch(){
         zomatoAjax.url = zomatorAPI+ "search?entity_id=302&entity_type=city&q=92111&start="+start+"&count=5"
         $.ajax(zomatoAjax).done(function(results){
             traverseResults(results)
-            getReview()
         })
     }
     function traverseResults(results){
@@ -71,7 +132,8 @@ $(document).ready(function(){
     function getRestaurantImage(res_id){
         zomatoAjax.url = zomatorAPI+ "restaurant?res_id="+res_id
         $.ajax(zomatoAjax).done(function(results){
-            console.log("TEST->",results.featured_image)
+//            console.log("TEST->",results.featured_image)
+
             var img =  $("<img>").attr("src",results.featured_image )
             $(".restaurant-image").html(img)
         })
@@ -95,5 +157,5 @@ $(document).ready(function(){
 
     //initial load
     zomatorSearch()
-});
 
+});

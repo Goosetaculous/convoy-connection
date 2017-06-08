@@ -3,10 +3,6 @@ header {
     text-align: center;
 }
 
-body {
-    font-family: 'Shojumaru';
-    color: white;
-}
 .side-bar {
     background-color: burlywood;
 
@@ -26,25 +22,131 @@ body {
     position: relative;
     top: 50px;
     border-radius: 20px;
+    font-family: 'Shojumaru';
+    background-color: #fe040A;
+    text-align: center;
+    font-size: 36px;
+    color: white
+
 }
 
-.collapsible-header {
-    color: red;
+body {
+    font-family: 'Roboto';
+    color: #650003;
+    background-color: #A00004;
 }
 
-#modal1 {
-    height: 400px;
-}
+.side-bar {
+    background-color: #ffaa00;
 
-#zomato-review {
-    color: blue;
-    right: 50%;
-}
+    height: 100%;
 
-#google-review {
-    color: red;
+}
+#no-results {
+    display: none;
 }
 
 img {
     border-radius: 20px;
+  
+.main-content {
+    background-color: #650003;
+    height: 400px !important;
+    overflow-y:auto;
+}
+
+.collapsible-header {
+    color: #650003;
+    background-color: #ffAAAC;
+
+}
+
+#modal1 {
+    height: 500px;
+    background-color: #ffaaac;
+    font-family: 'Roboto';
+    color: #650003;
+    position: fixed;
+   /* display: inline-block;*/
+    /*top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);*/
+    
+}
+
+#zomato-review {
+
+
+
+    color: red;
+    width: 200px;
+    display: inline-block;
+    padding: 10px;
+    border: solid 2px black;
+    border-radius: 10px;
+    /*float: left;
+    float: right;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;*/
+    
+   
+    
+
+}
+
+
+#google-review {
+    color: blue;
+    width: 200px;
+    display: inline-block;
+    padding: 10px;
+    border:solid 2px black;
+    border-radius: 10px;
+    /*float: left;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;*/
+    
+
+    
+}
+
+
+
+#restaurant-men {
+    background-color: #ffd47e;
+}
+
+.food-menu {
+    height: 300px;
+    overflow-y:auto;
+}
+
+
+div.zomatoRestaurantReview {
+    box-sizing: border-box;
+    border: 2px;
+    border-bottom: 2px;
+    margin-bottom: 2px;
+    /*border-style: solid;
+    border-color: black;
+    border-radius: 2px;
+    width: 200px;
+    float: left;*/
+}
+
+
+input {
+    color: #563A00;
+    
+}
+
+#search-box{
+
+    background-color: #ffE1a6;
+    border-radius: 15px;
+    padding-left: 25px;
 }
