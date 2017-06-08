@@ -19,6 +19,7 @@ $(document).ready(function(){
         if ($("#search-box").val().length > 2){
             entreeSearch($("#search-box").val())
         }else if ($("#search-box").val().length === 0) {
+            $('#no-results' ).hide()
             $("li.res-li").show()
         }
     })
@@ -34,6 +35,12 @@ $(document).ready(function(){
                 if(foundonFirebase(cd,searchTerm)){
                     $('li#'+ck).show()
                 }
+                console.log( $(".restaurants-collection li:visible").length )
+                if( $(".restaurants-collection li:visible").length <=1){
+                    $('#no-results').show()
+                }else {
+                    $('#no-results').hide()
+                }
             })
         })
     }
@@ -43,6 +50,7 @@ $(document).ready(function(){
         for(key in obj){
             var entry = Object.keys(obj[key])[0].toLowerCase()
             if(entry.includes(item)){
+                // $('#no-results').hide()
                 found =  true
                 break
             }
@@ -55,8 +63,8 @@ $(document).ready(function(){
     function populateTable(restaurantInfo){
         var li = $("<li class='res-li' id='"+restaurantInfo.id+"'>" +
             "<div class='collapsible-header row' res-id='"+restaurantInfo.id+"'>" +
-            "<div class='col s3 getName' data-name='"+restaurantInfo.name+"'>"+restaurantInfo.name+"</div>" 
-            "<div class='col s3'>"+restaurantInfo.ratingNum+"</div>"
+            "<div class='col s2 getName' data-name='"+restaurantInfo.name+"'>"+restaurantInfo.name+"</div>" +
+            "<div class='col s2'>"+restaurantInfo.ratingNum+"</div>"+
             "<div class='col s4'>"+restaurantInfo.address+"</div>" +
             "<div class='col s4'>"+ restaurantInfo.cuisine+"</div>" +
             "</div>" +
@@ -65,7 +73,7 @@ $(document).ready(function(){
             "<div class='food-menu'><div class='menu-msg'></div><table><tbody id='menu-entries-"+restaurantInfo.id+"' border='1'></tbody></table></div>" +
             "</div>" +
             "<div class='col s3'>" +
-            "<button data-target='modal1' class='btn' id='restaurant-rating'>Rating</button>" +
+            "<button data-target='modal1' class='btn' id='restaurant-rating'>Reviews</button>" +
             "</div>" +
             "</div>" +
             "</li>")
