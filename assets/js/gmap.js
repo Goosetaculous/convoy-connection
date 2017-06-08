@@ -70,8 +70,11 @@ function getDetails(request) {
   }).done(function(response) {
     var restaurantImages = [];
       //Assigns the photo URLs from the Google Maps API to array
-      for (i = 0; i < 3; i++) {
-        restaurantImages.push(response.result.photos[i].photo_reference);
+      for (i = 0; i < 7; i++) {
+        if (response.result.photos[i].photo_reference !== undefined) {
+          console.log(response.result.photos[i].photo_reference);
+          restaurantImages.push(response.result.photos[i].photo_reference);
+        }
       };
 
     //Grabs reviews from the Google Maps API and appends to the page
