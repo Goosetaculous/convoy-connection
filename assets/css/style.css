@@ -1,6 +1,9 @@
 header {
     background-color: brown;
     text-align: center;
+    font-family: 'Shojumaru';
+    color: white;
+    font-size: 36px;
 }
 
 .side-bar {
@@ -22,7 +25,7 @@ header {
     position: relative;
     top: 50px;
     border-radius: 20px;
-    font-family: 'Shojumaru';
+    
     background-color: #fe040A;
     text-align: center;
     font-size: 36px;
