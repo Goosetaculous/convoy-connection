@@ -23,11 +23,11 @@ $(document).ready(function() {
 		
 		foursquareAjax.url = foursquareAPI + queryURL
 		console.log(foursquareAjax.url)
-		$.ajax(foursquareAjax).done(function(blah){
-	      		console.log(blah)
-	      		var results = blah.response;
-	      		var restaurantName = blah.response.venues[0].name;
-	      		var venueID = blah.response.venues[0].id;
+		$.ajax(foursquareAjax).done(function(results){
+	      		console.log(results)
+	      		var results = results.response;
+	      		var restaurantName = results.response.venues[0].name;
+	      		var venueID = results.response.venues[0].id;
 	      		
 	      		getRestaurantImage(venueID);
 	           
@@ -63,6 +63,15 @@ $(document).ready(function() {
 	}
 
 })
+
+
+//On Click event to grab data of restaurant name for foursquareSearch
+	$(".getName").on("click", function(){
+        restName = $(this).data('name')
+        console.log(restName)
+        
+    	})
+
 
 
 	
