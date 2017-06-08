@@ -49,6 +49,3 @@ $(document).ready(function(){
         })
     })
 })
-
-
-
