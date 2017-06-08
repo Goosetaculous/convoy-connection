@@ -35,7 +35,6 @@ $(document).ready(function(){
                 if(foundonFirebase(cd,searchTerm)){
                     $('li#'+ck).show()
                 }
-                console.log( $(".restaurants-collection li:visible").length )
                 if( $(".restaurants-collection li:visible").length <=1){
                     $('#no-results').show()
                 }else {
@@ -99,7 +98,12 @@ $(document).ready(function(){
         })
     }
 
-  function zomatorSearch(){
+    /**
+     * Call the zomato API
+     *
+     */
+
+    function zomatorSearch(){
         zomatoAjax.url = zomatorAPI+ "search?entity_id=302&entity_type=city&q=92111&start="+start+"&count=5"
         $.ajax(zomatoAjax).done(function(results){
             traverseResults(results)
@@ -128,7 +132,7 @@ $(document).ready(function(){
     function getRestaurantImage(res_id){
         zomatoAjax.url = zomatorAPI+ "restaurant?res_id="+res_id
         $.ajax(zomatoAjax).done(function(results){
-            console.log("TEST->",results.featured_image)
+//            console.log("TEST->",results.featured_image)
             var img =  $("<img>").attr("src",results.featured_image )
             $(".restaurant-image").html(img)
         })
