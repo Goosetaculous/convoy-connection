@@ -16,7 +16,7 @@ $(document).ready(function(){
         var item=""
         var food = Object.keys(menu[key])
         var price = Object.values(menu[key])
-            item = food + " " + price
+            item = "<td>"+food + "</td><td>" + price + "</td>"
         return item
     }
 
@@ -38,10 +38,10 @@ $(document).ready(function(){
                         count=0
                     }
                     if(count!=max_columns){
-                        $(selector+" tr:last").append("<td>"+content+"</td>")
+                        $(selector+" tr:last").append(content)
                         count++
                     }else{
-                        $(selector+" tr:first").append("<td>"+content+"</td>")
+                        $(selector+" tr:first").append(content)
                         count++
                     }
                 }
@@ -49,6 +49,3 @@ $(document).ready(function(){
         })
     })
 })
-
-
-

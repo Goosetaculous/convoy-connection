@@ -10,6 +10,7 @@ $(document).ready(function(){
             "user-key"  : zomatorKey
         }
     }
+
     var database =firebase.database();
     var start = 1  //ctr for pagination
 
@@ -83,7 +84,6 @@ $(document).ready(function(){
         zomatoAjax.url = zomatorAPI+ "reviews?res_id="+res_id
         $.ajax(zomatoAjax).done(function(results){
             $("#zomato-review").html("")
-
             for(var i = 0 ; i < 5; i++){
                 var zomReviews = $("<div class = 'zomatoRestaurantReview'>")
                 var zomRating = $("<div class = 'zomatoRating'>").html(results.user_reviews[i].review.rating + " out of 5 stars ")
@@ -137,6 +137,7 @@ $(document).ready(function(){
         zomatoAjax.url = zomatorAPI+ "restaurant?res_id="+res_id
         $.ajax(zomatoAjax).done(function(results){
 //            console.log("TEST->",results.featured_image)
+
             var img =  $("<img>").attr("src",results.featured_image )
             $(".restaurant-image").html(img)
         })
@@ -160,6 +161,5 @@ $(document).ready(function(){
 
     //initial load
     zomatorSearch()
-
 
 });
