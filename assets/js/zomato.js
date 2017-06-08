@@ -17,7 +17,7 @@ $(document).ready(function(){
 
     $( "#search-box" ).keyup(function() {
         if ($("#search-box").val().length > 2){
-            $('#no-results' ).hide()
+
             entreeSearch($("#search-box").val())
         }else if ($("#search-box").val().length === 0) {
             $('#no-results' ).hide()
@@ -35,8 +35,12 @@ $(document).ready(function(){
                 var cd =  snapshot.val()
                 if(foundonFirebase(cd,searchTerm)){
                     $('li#'+ck).show()
+                }
+                console.log( $(".restaurants-collection li:visible").length )
+                if( $(".restaurants-collection li:visible").length <=1){
+                    $('#no-results').show()
                 }else {
-                    $('#no-results' ).show()
+                    $('#no-results').hide()
                 }
             })
         })
@@ -47,6 +51,7 @@ $(document).ready(function(){
         for(key in obj){
             var entry = Object.keys(obj[key])[0].toLowerCase()
             if(entry.includes(item)){
+                // $('#no-results').hide()
                 found =  true
                 break
             }
