@@ -1,5 +1,5 @@
 header {
-    background-color: brown;
+    background-image: url(http://images.all-free-download.com/images/graphiclarge/golden_wheat_vector_background_set_523647.jpg);
     text-align: center;
     font-family: 'Shojumaru';
     color: white;
@@ -7,9 +7,8 @@ header {
 }
 
 .side-bar {
-    background-color: burlywood;
-
-    height: 100%;
+    background-image: url(https://cdn.pixabay.com/photo/2017/04/24/12/29/noodles-2256332_960_720.jpg);
+    background-size: cover;
 }
 
 .main-conent {
@@ -36,7 +35,8 @@ header {
 body {
     font-family: 'Roboto';
     color: #650003;
-    background-color: #A00004;
+    background-image: url(https://static.pexels.com/photos/87390/chilli-pepper-sharp-spices-laos-87390.jpeg);
+    background-size: cover;
 }
 
 .side-bar {
@@ -53,14 +53,14 @@ img {
     border-radius: 20px;
   
 .main-content {
-    background-color: #650003;
+    background-image: url(http://images.all-free-download.com/images/graphiclarge/golden_wheat_vector_background_set_523647.jpg);
     height: 400px !important;
     overflow-y:auto;
 }
 
 .collapsible-header {
-    color: #650003;
-    background-color: #ffAAAC;
+    background-image: url(https://cdn.pixabay.com/photo/2017/04/24/12/29/noodles-2256332_960_720.jpg);
+    background-size: cover;
 
 }
 
@@ -70,10 +70,7 @@ img {
     font-family: 'Roboto';
     color: #650003;
     position: fixed;
-   /* display: inline-block;*/
-    /*top: 25%;
-    left: 25%;
-    transform: translate(-50%, -50%);*/
+   
     
 }
 #restaurant-reviews{
@@ -82,24 +79,13 @@ img {
 
 #zomato-review {
 
-
-
     color: red;
     width: 100%;
     display: inline-block;
     padding: 10px;
     border: solid 2px black;
     border-radius: 10px;
-    /*float: left;
-    float: right;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;*/
-    
-   
-    
-
+     
 }
 
 
@@ -110,11 +96,7 @@ img {
     padding: 10px;
     border:solid 2px black;
     border-radius: 10px;
-    /*float: left;
-    top: 50%;
-    right: 50%;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;*/
+    
     
 
     
@@ -123,10 +105,12 @@ img {
 
 
 #restaurant-men {
-    background-color: #ffd47e;
+    background-image: url(https://cdn.pixabay.com/photo/2017/04/24/12/29/noodles-2256332_960_720.jpg);
+    background-size: cover;
 }
 
 .food-menu {
+    background-color: #ffd47e;
     height: 300px;
     overflow-y:auto;
 }
@@ -137,22 +121,25 @@ div.zomatoRestaurantReview {
     border: 2px;
     border-bottom: 2px;
     margin-bottom: 2px;
-    /*border-style: solid;
-    border-color: black;
-    border-radius: 2px;
-    width: 200px;
-    float: left;*/
+    
 }
 
 
 input {
-    color: #563A00;
+    background-image: url(https://cdn.pixabay.com/photo/2017/04/24/12/29/noodles-2256332_960_720.jpg);
+    background-size: cover;
+    border-radius: 15px;
+    padding-left: 25px;
     
 }
 
 #search-box{
+     background-color: #ffE1a6;
+     border-radius: 15px;
+     padding-left: 25px;
+}
 
-    background-color: #ffE1a6;
-    border-radius: 15px;
-    padding-left: 25px;
+.validate{
+
+
 }

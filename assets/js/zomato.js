@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
-    var zomatorKey="2764611985fca4aa535b451992f20776"
+    var zomatorKey="02a56259c797204a75f7d4dd14a08d39"
     var zomatoAjax={
         "async"         :   true,
         "crossDomain"   :   true,
@@ -168,7 +168,7 @@ $(document).ready(function(){
     zomatorSearch()
     //initial load
     for (var i = 0; i <=52; i++){
-        loadAll()
+        // loadAll()
 
     }
 
