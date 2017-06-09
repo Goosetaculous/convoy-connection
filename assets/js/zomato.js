@@ -1,6 +1,16 @@
 $(document).ready(function(){
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
-    var zomatorKey="02a56259c797204a75f7d4dd14a08d39"
+
+    //Backup key(1000 calls/day)
+    var zomatorKey = "ec761b592e1a11adbc7320c4fff471b9"
+    
+    //Maxed out @ 531p :Use on 6/9/17 after 531p(1000 calls/day)
+    //var zomatorKey="02a56259c797204a75f7d4dd14a08d39"
+    //Maxed out :Use on 6/9/17 (Has 2000 calls/day)
+    //var zomatorKey="2764611985fca4aa535b451992f20776"
+
+    
+
     var zomatoAjax={
         "async"         :   true,
         "crossDomain"   :   true,
@@ -84,9 +94,9 @@ $(document).ready(function(){
         zomatoAjax.url = zomatorAPI+ "reviews?res_id="+res_id
         $.ajax(zomatoAjax).done(function(results){
             $("#zomato-review").html("")
-            for(var i = 0 ; i < 5; i++){
+            for(var i = 0 ; i  < results.user_reviews.length; i++){
                 var zomReviews = $("<div class = 'zomatoRestaurantReview'>")
-                var zomRating = $("<div class = 'zomatoRating'>").html(results.user_reviews[i].review.rating + " out of 5 stars ")
+                var zomRating = $("<div class = 'zomatoRating'>").html(results.user_reviews[i].review.rating + " out of 5 stars ")  
                 var zomUserName = $("<div class = 'zomatoUserName'>").html(results.user_reviews[i].review.user.name)
                 var zomDate = $("<div class = 'zomatoDate'>").html(results.user_reviews[i].review.review_time_friendly)
                 var zomText = $("<div class = 'zomatoReviewText'>").html(results.user_reviews[i].review.review_text)
