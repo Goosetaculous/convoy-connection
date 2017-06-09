@@ -16,7 +16,7 @@ header {
     color: black;
     background-color: #FF4F00;
     opacity: 0.85;
-    height: 500px;
+    height: 400px;
     overflow-y: auto;
 }
 
@@ -27,16 +27,14 @@ header {
     padding-left: 25px;    
 }
 
-
 #map {
     height:190px;
     width: 200px;
     display: block;
     position: relative;
-    top: 50px;
     border-radius: 20px;
     margin: auto;
-    
+    margin-top: 20px;
     background-color: #fe040A;
     text-align: center;
     font-size: 36px;
@@ -47,15 +45,12 @@ header {
 body {
     font-family: 'Roboto';
     color: #650003;
-    background-image: url("../images/main.png");
+    background-image: url("https://static.pexels.com/photos/87390/chilli-pepper-sharp-spices-laos-87390.jpeg");
     background-size: cover;
 }
 
 .side-bar {
-    background-color: #ffaa00;
-
-    height: 100%;
-
+    width: 200px;
 }
 #no-results {
     display: none;
@@ -159,4 +154,6 @@ div.zomatoRestaurantReview {
 .onload-div:hover{
     background-color: #4dd0e1;
 }
+
+
 

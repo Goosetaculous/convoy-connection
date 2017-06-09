@@ -128,6 +128,7 @@ $(document).ready(function(){
     function zomatorSearch(){
         zomatoAjax.url = zomatorAPI+ "search?entity_id=302&entity_type=city&q=92111&start="+start+"&count=20"
         $.ajax(zomatoAjax).done(function(results){
+            console.log(results)
             traverseResults(results)
         })
     }
@@ -176,6 +177,8 @@ $(document).ready(function(){
 
     //create the modal on click
     $(".restaurants-collection").on("click", ".collapsible-header",function(){
+        $('.button-collapse').sideNav('show');
+        // $('.carousel').show()
         getReview( $(this).attr("res-id") )
         var modal=$("<div id='modal1' class='modal bottom-sheet'>" +
             "<div class='modal-content' id='restaurant-reviews'>" +
@@ -186,7 +189,7 @@ $(document).ready(function(){
     zomatorSearch()
     //initial load
     for (var i = 0; i <=10; i++){
-         loadAll()
+     //    loadAll()
     }
     // for (var i = 0; i <=10; i++){
     //     loadAll()
