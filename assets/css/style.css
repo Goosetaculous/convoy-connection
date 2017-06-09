@@ -11,10 +11,10 @@ header {
     background-size: cover;
 }
 
-.main-conent {
-    background-color: darkgrey;
+.main-content {
+    background-color: transparent;
     height: 500px;
-    overflow-y:auto;
+    overflow-y: auto;
 }
 
 #map {
@@ -53,11 +53,6 @@ body {
 img {
     border-radius: 20px;
   
-.main-content {
-    background-image: url(http://images.all-free-download.com/images/graphiclarge/golden_wheat_vector_background_set_523647.jpg);
-    height: 400px !important;
-    overflow-y:auto;
-}
 
 .collapsible-header {
     background-image: url(https://cdn.pixabay.com/photo/2017/04/24/12/29/noodles-2256332_960_720.jpg);
