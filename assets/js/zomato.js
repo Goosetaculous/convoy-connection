@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
+
     //Backup key
     //var zomatorKey = "ec761b592e1a11adbc7320c4fff471b9"
     
@@ -7,6 +8,9 @@ $(document).ready(function(){
     var zomatorKey="02a56259c797204a75f7d4dd14a08d39"
     //Maxed out :Use on 6/9/17
     //var zomatorKey="2764611985fca4aa535b451992f20776"
+
+    var zomatorKey="02a56259c797204a75f7d4dd14a08d39"
+// >>>>>>> ce2d180ca928573a1d166273b5bc24d37f511b61
     var zomatoAjax={
         "async"         :   true,
         "crossDomain"   :   true,
