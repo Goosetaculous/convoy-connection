@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+
+
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
 
     //Backup key
@@ -177,9 +180,9 @@ $(document).ready(function(){
     })
     zomatorSearch()
     //initial load
-    for (var i = 0; i <=10; i++){
-        loadAll()
-    }
+    // for (var i = 0; i <=10; i++){
+    //     loadAll()
+    // }
     //zomatorSearch()
 
 

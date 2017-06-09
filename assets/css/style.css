@@ -36,7 +36,7 @@ header {
 body {
     font-family: 'Roboto';
     color: #650003;
-    background-image: url(https://static.pexels.com/photos/87390/chilli-pepper-sharp-spices-laos-87390.jpeg);
+    background-image: url("../images/main.png");
     background-size: cover;
 }
 
@@ -52,6 +52,7 @@ body {
 
 img {
     border-radius: 20px;
+}
   
 .main-content {
     background-image: url(http://images.all-free-download.com/images/graphiclarge/golden_wheat_vector_background_set_523647.jpg);
@@ -140,7 +141,26 @@ input {
      padding-left: 25px;
 }
 
-.validate{
+.hide-on-load {
+    display: none;
+}
 
+.onload-graphic {
+    height: 100%;
+    width: 100%;
+}
 
+.onload-div {
+    text-align: center;
+    margin-top: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    width: 200px;
+    padding:20px;
+    font-family: 'Shojumaru';
+    background-color: white;
+}
+.onload-div:hover{
+    background-color: #4dd0e1;
 }
