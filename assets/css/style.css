@@ -17,6 +17,13 @@ header {
     overflow-y: auto;
 }
 
+#search-box {
+    background-color: green;
+    color: black;
+    opacity: .8;
+    
+}
+
 #map {
     height:190px;
     width: 200px;
@@ -130,13 +137,5 @@ input {
     
 }
 
-#search-box{
-     background-color: #ffE1a6;
-     border-radius: 15px;
-     padding-left: 25px;
-}
-
-.validate{
 
 
-}

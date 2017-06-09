@@ -1,13 +1,13 @@
 $(document).ready(function(){
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
 
-    //Backup key(1000 calls/day)
-    var zomatorKey = "ec761b592e1a11adbc7320c4fff471b9"
+    //Backup key(1000 calls/day)Maxed out 1059a: Uses 6/10/17 after 1059a
+    //var zomatorKey = "ec761b592e1a11adbc7320c4fff471b9"
     
     //Maxed out @ 531p :Use on 6/9/17 after 531p(1000 calls/day)
     //var zomatorKey="02a56259c797204a75f7d4dd14a08d39"
-    //Maxed out :Use on 6/9/17 (Has 2000 calls/day)
-    //var zomatorKey="2764611985fca4aa535b451992f20776"
+    //(Has 2000 calls/day)
+    var zomatorKey="2764611985fca4aa535b451992f20776"
 
     
 

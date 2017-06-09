@@ -5,8 +5,8 @@ var markersArray = [];
 function initMap() {
   //Default map position is San Diego
   var userPosition = {
-    lat: 32.920125899999995,
-    lng: -117.10881489999998
+    lat: 32.8242510000,
+    lng: -117.1542920000
   }
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
