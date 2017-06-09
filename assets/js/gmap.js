@@ -127,6 +127,7 @@ $(document).ready(function(){
   $(".restaurants-collection").on("click", ".collapsible-header",function() {
     var address = $(this).children();
     var address = encodeURI(address[2].innerText);
+     $('.carousel').show();
     console.log(address);
     geoCoder(address);
   });
