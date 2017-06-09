@@ -11,11 +11,6 @@ header {
     background-size: cover;
 }
 
-.main-conent {
-    background-color: darkgrey;
-    height: 500px;
-    overflow-y:auto;
-}
 
 #map {
     height:190px;
@@ -53,8 +48,10 @@ img {
     border-radius: 20px;
   
 .main-content {
-    background-image: url(http://images.all-free-download.com/images/graphiclarge/golden_wheat_vector_background_set_523647.jpg);
+    background-color: #E94200;
     height: 400px !important;
+    overflow-y:auto;
+    height: 500px;
     overflow-y:auto;
 }
 
@@ -139,7 +136,3 @@ input {
      padding-left: 25px;
 }
 
-.validate{
-
-
-}
