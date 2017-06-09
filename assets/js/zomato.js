@@ -1,6 +1,5 @@
 $(document).ready(function(){
-
-
+    document.getElementById( 'sidebar' ).style.display = 'hidden'
 
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
 
