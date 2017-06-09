@@ -101,10 +101,10 @@ $(document).ready(function(){
                 var zomDate = $("<div class = 'zomatoDate'>").html(results.user_reviews[i].review.review_time_friendly)
                 var zomText = $("<div class = 'zomatoReviewText'>").html(results.user_reviews[i].review.review_text)
                 
-                zomReviews.append(zomRating);
-                zomReviews.append(zomUserName);
-                zomReviews.append(zomDate);
-                zomReviews.append(zomText);
+                zomReviews.append(zomRating,zomUserName,zomDate,zomText);
+                // zomReviews.append(zomUserName);
+                // zomReviews.append(zomDate);
+                // zomReviews.append(zomText);
                 zomReviews.append("<br>");
                 
                 $("#zomato-review").append(zomReviews);           
@@ -118,7 +118,7 @@ $(document).ready(function(){
      */
 
     function zomatorSearch(){
-        zomatoAjax.url = zomatorAPI+ "search?entity_id=302&entity_type=city&q=92111&start="+start+"&count=5"
+        zomatoAjax.url = zomatorAPI+ "search?entity_id=302&entity_type=city&q=92111&start="+start+"&count=20"
         $.ajax(zomatoAjax).done(function(results){
             traverseResults(results)
         })
@@ -177,11 +177,9 @@ $(document).ready(function(){
     })
     zomatorSearch()
     //initial load
-    for (var i = 0; i <=52; i++){
-        // loadAll()
-
+    for (var i = 0; i <=10; i++){
+        loadAll()
     }
-
     //zomatorSearch()
 
 
