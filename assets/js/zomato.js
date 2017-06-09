@@ -179,9 +179,7 @@ $(document).ready(function(){
     //initial load
     for (var i = 0; i <=10; i++){
         loadAll()
-
     }
-
     //zomatorSearch()
 
 
