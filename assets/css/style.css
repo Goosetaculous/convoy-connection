@@ -21,6 +21,14 @@ header {
 }
 
 
+#search-box {
+    background-color: green;
+    color: black;
+    opacity: .8;
+    
+}
+
+
 #map {
     height:190px;
     width: 200px;
@@ -144,15 +152,8 @@ div.zomatoRestaurantReview {
     
 }
 
-#search-box{
-     color: white;
-     background-color: blue;
-     border-radius: 15px;
-     padding-left: 25px;
-}
 
- input#search-box.validate{
 
-    color:white;
- }
+
+ 
 

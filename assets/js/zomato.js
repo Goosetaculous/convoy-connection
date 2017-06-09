@@ -1,13 +1,18 @@
 $(document).ready(function(){
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
 
+<<<<<<< HEAD
     //Backup key(1000 calls/day)
     var zomatorKey = "2764611985fca4aa535b451992f20776"
+=======
+    //Backup key(1000 calls/day)Maxed out 1059a: Uses 6/10/17 after 1059a
+    //var zomatorKey = "ec761b592e1a11adbc7320c4fff471b9"
+>>>>>>> 0b70973c23ef5b6800188f06f28049d9261116fc
     
     //Maxed out @ 531p :Use on 6/9/17 after 531p(1000 calls/day)
     //var zomatorKey="02a56259c797204a75f7d4dd14a08d39"
-    //Maxed out :Use on 6/9/17 (Has 2000 calls/day)
-    //var zomatorKey="2764611985fca4aa535b451992f20776"
+    //(Has 2000 calls/day)
+    var zomatorKey="2764611985fca4aa535b451992f20776"
 
     
 
@@ -101,10 +106,10 @@ $(document).ready(function(){
                 var zomDate = $("<div class = 'zomatoDate'>").html(results.user_reviews[i].review.review_time_friendly)
                 var zomText = $("<div class = 'zomatoReviewText'>").html(results.user_reviews[i].review.review_text)
                 
-                zomReviews.append(zomRating);
-                zomReviews.append(zomUserName);
-                zomReviews.append(zomDate);
-                zomReviews.append(zomText);
+                zomReviews.append(zomRating,zomUserName,zomDate,zomText);
+                // zomReviews.append(zomUserName);
+                // zomReviews.append(zomDate);
+                // zomReviews.append(zomText);
                 zomReviews.append("<br>");
                 
                 $("#zomato-review").append(zomReviews);           
@@ -118,7 +123,7 @@ $(document).ready(function(){
      */
 
     function zomatorSearch(){
-        zomatoAjax.url = zomatorAPI+ "search?entity_id=302&entity_type=city&q=92111&start="+start+"&count=5"
+        zomatoAjax.url = zomatorAPI+ "search?entity_id=302&entity_type=city&q=92111&start="+start+"&count=20"
         $.ajax(zomatoAjax).done(function(results){
             traverseResults(results)
         })
@@ -177,11 +182,9 @@ $(document).ready(function(){
     })
     zomatorSearch()
     //initial load
-    for (var i = 0; i <=52; i++){
-        // loadAll()
-
+    for (var i = 0; i <=10; i++){
+        loadAll()
     }
-
     //zomatorSearch()
 
 
