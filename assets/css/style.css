@@ -22,10 +22,9 @@ header {
 
 
 #search-box {
-    background-color: green;
+    background-color: #daa520;
     color: black;
-    opacity: .8;
-    
+    padding-left: 25px;    
 }
 
 
@@ -64,12 +63,13 @@ body {
 
 img {
     border-radius: 20px;
-  
+  }
 
 
 .collapsible-header {
-    background-image: url(https://cdn.pixabay.com/photo/2017/04/24/12/29/noodles-2256332_960_720.jpg);
+    background-color: white;
     background-size: cover;
+    opacity: .85;
 
 }
 
@@ -118,9 +118,9 @@ img {
 
 
 
-#restaurant-men {
+/*#restaurant-men {
     background-image: url(https://cdn.pixabay.com/photo/2017/04/24/12/29/noodles-2256332_960_720.jpg);
-    background-size: cover;
+    background-size: cover;*/
 }
 
 .food-menu {
