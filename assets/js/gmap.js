@@ -96,8 +96,6 @@ function getDetails(request) {
         //Grabs reviews from the Google Maps API and appends to the page
         var reviews = response.result.reviews;
         populateReviews(reviews)
-
-
         //Adds images to the page from images array
         for (i = 0; i < 5; i++) {
             var currentLoop = i+1;
@@ -128,6 +126,7 @@ $(document).ready(function(){
         var address = encodeURI(address[2].innerText);
         geoCoder(address);
     });
+
 
     getLocation();
     initMap();

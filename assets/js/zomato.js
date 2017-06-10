@@ -154,6 +154,8 @@ $(document).ready(function(){
      * Click event for each <li>
      */
     $(".restaurants-collection").on("click", ".collapsible-header",function(){
+        $(".placeholder").hide();
+        $(".carousel").css({"visibility": "visible"})
         getReview( $(this).attr("res-id") )
     })
     /*
