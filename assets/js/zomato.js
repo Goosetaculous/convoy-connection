@@ -34,7 +34,6 @@ $(document).ready(function(){
     })
 
     function entreeSearch(item){
-
         $("li.res-li").hide()
         var searchTerm = item.toLowerCase()
         database.ref().once("value", function (data) {
@@ -112,9 +111,7 @@ $(document).ready(function(){
 
     /**
      * Call the zomato API
-     *
      */
-
     function zomatorSearch(){
         zomatoAjax.url = zomatorAPI+ "search?entity_id=302&entity_type=city&q=92111&start="+start+"&count=20"
         $.ajax(zomatoAjax).done(function(results){
@@ -165,7 +162,9 @@ $(document).ready(function(){
 
     }
 
-    //create the modal on click
+    /**
+     * Click event for each <li>
+     */
     $(".restaurants-collection").on("click", ".collapsible-header",function(){
         $('.button-collapse').sideNav('show');
         // $('.carousel').show()
@@ -176,16 +175,11 @@ $(document).ready(function(){
             "</div>" +
             "</div>")
     })
+    /*
+     Initial Load
+     */
     zomatorSearch()
-    //initial load
     for (var i = 0; i <=10; i++){
      //    loadAll()
     }
-    // for (var i = 0; i <=10; i++){
-    //     loadAll()
-    // }
-
-    //zomatorSearch()
-
-
 });
