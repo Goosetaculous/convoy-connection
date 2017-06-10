@@ -13,55 +13,41 @@
     <script type="text/javascript" src="assets/js/gmap.js"></script>
     <script type="text/javascript" src="assets/js/foursquare.js"></script>
     <script type="text/javascript" src="assets/js/zomato.js"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Convoy Connection</title>
 </head>
 <body>
-<header class="hide-on-load">
+<header>
     <div class="row">
         Convoy Connection
     </div>
     <div class="row">
-
         The best of San diego...
     </div>
+    <input placeholder="What do you want to eat?" id="search-box" type="text" class="validate">
 </header>
-<div class="onload-div">
-    <h6>CONVOY CONNECTION</h6>
-</div>
-
 <!--Layout-->
-<div class="row hide-on-load">
-    
+
+<div class="row overall">
 
     <div class="col s3 side-bar">
-        <!--map-->
         <div id="map"></div>
-        <!--carousel-->
-        <div class="carousel">
-            <a class="carousel-item" href="#one!"><img id="carousel_1" src="http://lorempixel.com/250/250/nature/1"></a>
-            <a class="carousel-item" href="#two!"><img id="carousel_2" src="http://lorempixel.com/250/250/nature/2"></a>
-            <a class="carousel-item" href="#three!"><img id="carousel_3" src="http://lorempixel.com/250/250/nature/3"></a>
-            <a class="carousel-item" href="#four!"><img id="carousel_4" src="http://lorempixel.com/250/250/nature/4"></a>
-            <a class="carousel-item" href="#five!"><img id="carousel_5" src="http://lorempixel.com/250/250/nature/5"></a>
-        </div>
-    
-
-
     </div>
-    
-    <div class="col s9 search">
-            <input placeholder="  What do you want to eat?" id="search-box" type="text" class="validate">
-    </div>
-    
-    <div class="col s9 main-content" id="restaurantList">
-        
+    <div class="col s6 main-content" id="restaurantList">
         <ul class="collapsible restaurants-collection" data-collapsible="accordion">
             <li id="no-results"><h3 style="color: white;">No Results.  Try another one</h3></li>
         </ul>
     </div>
-
+    <div class="col s3">
+        <div class="carousel">
+            <a class="carousel-item"><img id="carousel_1" src="http://lorempixel.com/250/250/nature/1"></a>
+            <a class="carousel-item"><img id="carousel_2" src="http://lorempixel.com/250/250/nature/2"></a>
+            <a class="carousel-item"><img id="carousel_3" src="http://lorempixel.com/250/250/nature/3"></a>
+            <a class="carousel-item"><img id="carousel_4" src="http://lorempixel.com/250/250/nature/4"></a>
+            <a class="carousel-item"><img id="carousel_5" src="http://lorempixel.com/250/250/nature/5"></a>
+        </div>
+    </div>
 </div>
 
 
@@ -74,7 +60,6 @@
             <div id="zomato-review"></div>
             <div id="google-review"></div>
         </div>
-        
     </div>
 </div>
 

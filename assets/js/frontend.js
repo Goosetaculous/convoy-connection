@@ -1,12 +1,15 @@
 $(document).ready(function(){
+    $( ".overall" ).fadeIn( 5000 )
 
     $('.modal').modal();
     $('.carousel').carousel();
     $('.collapsible').collapsible();
+    $(".button-collapse").sideNav();
     $('.onload-div').on("click",function(){
-        $(this).hide("slow",function(){
+        $('.hide-on-load').show()
+        $(this).hide(function(){
             $('body').css("background-image", "url('https://static.pexels.com/photos/87390/chilli-pepper-sharp-spices-laos-87390.jpeg')");
-            $('.hide-on-load').show(2000)
+
 
         })
 
