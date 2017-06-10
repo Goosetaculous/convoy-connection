@@ -5,6 +5,10 @@ header {
     font-size: 36px;
 }
 
+.overall {
+    display: none;
+}
+
 
 .main-content {
     color: black;
