@@ -1,8 +1,4 @@
 $(document).ready(function(){
-<<<<<<< HEAD
-    
-=======
->>>>>>> 83d0bb594cade439a60ed589c26ad85e0d6eccf4
 
     var zomatorAPI="https://developers.zomato.com/api/v2.1/"
 
@@ -161,6 +157,8 @@ $(document).ready(function(){
      * Click event for each <li>
      */
     $(".restaurants-collection").on("click", ".collapsible-header",function(){
+        $(".placeholder").hide();
+        $(".carousel").css({"visibility": "visible"})
         getReview( $(this).attr("res-id") )
     })
     /*

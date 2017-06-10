@@ -124,22 +124,13 @@ function showPosition(position) {
 
 $(document).ready(function(){
 
-<<<<<<< HEAD
-  $(".restaurants-collection").on("click", ".collapsible-header",function() {
-    
-    var address = $(this).children();
-    var address = encodeURI(address[2].innerText);
-    console.log(address);
-    geoCoder(address);
-  });
-=======
     $(".restaurants-collection").on("click", ".collapsible-header",function() {
         var address = $(this).children();
         var address = encodeURI(address[2].innerText);
         console.log(address);
         geoCoder(address);
     });
->>>>>>> 83d0bb594cade439a60ed589c26ad85e0d6eccf4
+
 
     getLocation();
     initMap();

@@ -1,3 +1,5 @@
+
+
 header {
     text-align: center;
     font-family: 'Shojumaru';
@@ -9,6 +11,13 @@ header {
     display: none;
 }
 
+.carousel {
+    visibility: hidden;
+}
+
+.logo {
+    margin: 0 20px 0 20px;
+}
 
 .main-content {
     color: black;
