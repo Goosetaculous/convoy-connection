@@ -93,7 +93,7 @@ $(document).ready(function(){
                 var zomUserName = $("<div class = 'zomatoUserName'>").html(results.user_reviews[i].review.user.name)
                 var zomDate = $("<div class = 'zomatoDate'>").html(results.user_reviews[i].review.review_time_friendly)
                 var zomText = $("<div class = 'zomatoReviewText'>").html(results.user_reviews[i].review.review_text)
-                zomReviews.append("<h4>Reviews</h4>",zomRating,zomUserName,zomDate,zomText);
+                zomReviews.append("<h4>Reviews: Zomato</h4>",zomRating,zomUserName,zomDate,zomText);
                 zomReviews.append("<br>");
                 $("#zomato-review").append(zomReviews);
             }

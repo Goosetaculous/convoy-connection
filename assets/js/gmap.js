@@ -80,12 +80,12 @@ function getDetails(request) {
         var reviews = response.result.reviews;
         $("#google-review").html("");
         for (var i = 0; i < 5; i++) {
-            var reviewPost = $("<p></p>");
+            var reviewPost = $("<div><h4>Reviews: Google</h4></div><p></p>");
             reviewPost.append(reviews[i].author_name);
             reviewPost.append("<br/>");
             reviewPost.append(reviews[i].relative_time_description);
             reviewPost.append("<br/>");
-            reviewPost.append(reviews[i].rating);
+            reviewPost.append(reviews[i].rating + "out of 5 stars");
             reviewPost.append("<br/>");
             reviewPost.append(reviews[i].text);
             $("#google-review").append(reviewPost);
