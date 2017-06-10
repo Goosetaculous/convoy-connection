@@ -164,6 +164,6 @@ $(document).ready(function(){
      */
     zomatorSearch()
     for (var i = 0; i <=10; i++){
-     //    loadAll()
+         loadAll()
     }
 });

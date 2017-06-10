@@ -29,8 +29,8 @@ header {
 
 
 #map {
-    height:190px;
-    width: 200px;
+    height:300px;
+    width: 300px;
     display: block;
     position: relative;
     border-radius: 20px;
@@ -172,5 +172,12 @@ div.zomatoRestaurantReview {
     padding: 5px;
     width:50%;
 }
+
+@media only screen and (max-width: 1200px) {
+    #map {
+        width: 200px;
+    }
+}
+
 
 
