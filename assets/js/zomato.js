@@ -89,11 +89,11 @@ $(document).ready(function(){
             $("#zomato-review").html("")
             for(var i = 0 ; i  < results.user_reviews.length; i++){
                 var zomReviews = $("<div class = 'zomatoRestaurantReview'>")
-                var zomRating = $("<div class = 'zomatoRating'>").html(results.user_reviews[i].review.rating + " out of 5 stars ")  
+                var zomRating = $("<div class = 'stars'>").html(results.user_reviews[i].review.rating + " out of 5 stars ")
                 var zomUserName = $("<div class = 'zomatoUserName'>").html(results.user_reviews[i].review.user.name)
                 var zomDate = $("<div class = 'zomatoDate'>").html(results.user_reviews[i].review.review_time_friendly)
                 var zomText = $("<div class = 'zomatoReviewText'>").html(results.user_reviews[i].review.review_text)
-                zomReviews.append("<h4>Reviews: Zomato</h4>",zomRating,zomUserName,zomDate,zomText);
+                zomReviews.append("<img src='https://oldejaolrestaurant.com/wp-content/uploads/sites/17/2017/04/zomato_logo-150x150.png'>",zomRating,zomUserName,zomDate,zomText);
                 zomReviews.append("<br>");
                 $("#zomato-review").append(zomReviews);
             }
@@ -130,15 +130,13 @@ $(document).ready(function(){
      * Need a location to place the featured image or just use the carousel
      * @param res_id
      */
-    function getRestaurantImage(res_id){
-        zomatoAjax.url = zomatorAPI+ "restaurant?res_id="+res_id
-        $.ajax(zomatoAjax).done(function(results){
-//            console.log("TEST->",results.featured_image)
-
-            var img =  $("<img>").attr("src",results.featured_image )
-            $(".restaurant-image").html(img)
-        })
-    }
+    // function getRestaurantImage(res_id){
+    //     zomatoAjax.url = zomatorAPI+ "restaurant?res_id="+res_id
+    //     $.ajax(zomatoAjax).done(function(results){
+    //         var img =  $("<img>").attr("src",results.featured_image )
+    //         $(".restaurant-image").html(img)
+    //     })
+    // }
     /**
      * Will create a button to load more paginated by 5
      */
@@ -150,7 +148,6 @@ $(document).ready(function(){
     function loadAll(){
         start= start +5
         zomatorSearch();
-
     }
 
     /**

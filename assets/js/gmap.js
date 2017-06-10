@@ -1,5 +1,6 @@
 //Holds markers for map; global var to deal with Google Maps quirks
 var markersArray = [];
+var APIKEY="AIzaSyAxH7sN6qUgyMhcb0qbVhC2DGRS22CFeAE"
 
 //Initializes the map and sets center and zoom, takes user location
 function initMap() {
@@ -27,7 +28,7 @@ function clearOverlays(markersArray) {
 //The API performs a text search using the full address of the restaurant as pulled from the html
 function geoCoder(address) {
     $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query="+address+"&type=restaurant&key=AIzaSyAxH7sN6qUgyMhcb0qbVhC2DGRS22CFeAE",
+        url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query="+address+"&type=restaurant&key="+APIKEY,
         method: "GET"
     }).done(function(response) {
         console.log(response);
@@ -62,10 +63,26 @@ function geoCoder(address) {
     });
 }
 
+function populateReviews(reviews){
+    $("#google-review").html("");
+    for (var i = 0; i < 5; i++) {
+        var reviewPost = $("<div><img src='http://diylogodesigns.com/blog/wp-content/uploads/2016/04/google-logo-icon-PNG-Transparent-Background-150x150.png'></div><p></p>");
+        var googleRating = $("<div class = 'stars'>").html(reviews[i].rating + " out of 5 stars")
+        var googleUserName = $("<div class = 'zomatoUserName'>").html(reviews[i].author_name)
+        var googleDate = $("<div class = 'zomatoDate'>").html(reviews[i].relative_time_description)
+        var googleText = $("<div class = 'zomatoReviewText'>").html(reviews[i].text)
+        $("#google-review").append(reviewPost,googleRating,googleUserName,googleDate,googleText);
+        $("#google-review").append("<br/>")
+    }
+
+
+
+}
+
 //Queries the Google Maps Places API, obtains detailed place response and adds to page
 function getDetails(request) {
     $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid="+request.placeId+"&key=AIzaSyAxH7sN6qUgyMhcb0qbVhC2DGRS22CFeAE",
+        url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid="+request.placeId+"&key="+APIKEY,
         method: "GET"
     }).done(function(response) {
         var restaurantImages = [];
@@ -78,19 +95,8 @@ function getDetails(request) {
 
         //Grabs reviews from the Google Maps API and appends to the page
         var reviews = response.result.reviews;
-        $("#google-review").html("");
-        for (var i = 0; i < 5; i++) {
-            var reviewPost = $("<div><h4>Reviews: Google</h4></div><p></p>");
-            reviewPost.append(reviews[i].author_name);
-            reviewPost.append("<br/>");
-            reviewPost.append(reviews[i].relative_time_description);
-            reviewPost.append("<br/>");
-            reviewPost.append(reviews[i].rating + "out of 5 stars");
-            reviewPost.append("<br/>");
-            reviewPost.append(reviews[i].text);
-            $("#google-review").append(reviewPost);
-            $("#google-review").append("<br/>")
-        }
+        populateReviews(reviews)
+
 
         //Adds images to the page from images array
         for (i = 0; i < 5; i++) {
@@ -113,21 +119,13 @@ function getLocation() {
 
 //Callback function to store user position coordinates and initialize map
 function showPosition(position) {
-    var userPosition = {
-        lat: 32.920125899999995,
-        lng: -117.10881489999998
-    }
-    userPosition.lat = position.coords.latitude;
-    userPosition.lng = position.coords.longitude;
     initMap();
 }
 
 $(document).ready(function(){
-
     $(".restaurants-collection").on("click", ".collapsible-header",function() {
         var address = $(this).children();
         var address = encodeURI(address[2].innerText);
-        console.log(address);
         geoCoder(address);
     });
 
