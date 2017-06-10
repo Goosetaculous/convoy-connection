@@ -1,18 +1,30 @@
 header {
-    background-color: brown;
+    background-image: url(http://images.all-free-download.com/images/graphiclarge/golden_wheat_vector_background_set_523647.jpg);
     text-align: center;
+    font-family: 'Shojumaru';
+    color: white;
+    font-size: 36px;
 }
 
 .side-bar {
-    background-color: burlywood;
-
-    height: 100%;
+    background-image: url(https://cdn.pixabay.com/photo/2017/04/24/12/29/noodles-2256332_960_720.jpg);
+    background-size: cover;
 }
 
-.main-conent {
-    background-color: darkgrey;
-    height: 500px;
-    overflow-y:auto;
+
+.main-content {
+    color: black;
+    background-color: #FF4F00;
+    opacity: 0.85;
+    height: 400px;
+    overflow-y: auto;
+}
+
+
+#search-box {
+    background-color: #daa520;
+    color: black;
+    padding-left: 25px;    
 }
 
 #map {
@@ -20,9 +32,9 @@ header {
     width: 200px;
     display: block;
     position: relative;
-    top: 50px;
     border-radius: 20px;
-    font-family: 'Shojumaru';
+    margin: auto;
+    margin-top: 20px;
     background-color: #fe040A;
     text-align: center;
     font-size: 36px;
@@ -33,14 +45,12 @@ header {
 body {
     font-family: 'Roboto';
     color: #650003;
-    background-color: #A00004;
+    background-image: url("https://static.pexels.com/photos/87390/chilli-pepper-sharp-spices-laos-87390.jpeg");
+    background-size: cover;
 }
 
 .side-bar {
-    background-color: #ffaa00;
-
-    height: 100%;
-
+    width: 200px;
 }
 #no-results {
     display: none;
@@ -48,105 +58,102 @@ body {
 
 img {
     border-radius: 20px;
-  
+
+  }
+
 .main-content {
-    background-color: #650003;
+    background-image: url(http://images.all-free-download.com/images/graphiclarge/golden_wheat_vector_background_set_523647.jpg);
     height: 400px !important;
     overflow-y:auto;
 }
 
+
 .collapsible-header {
-    color: #650003;
-    background-color: #ffAAAC;
+    background-color: white;
+    background-size: cover;
+    opacity: .85;
 
 }
 
 #modal1 {
-    height: 500px;
-    background-color: #ffaaac;
-    font-family: 'Roboto';
-    color: #650003;
-    position: fixed;
-   /* display: inline-block;*/
-    /*top: 25%;
-    left: 25%;
-    transform: translate(-50%, -50%);*/
-    
-}
-
-#zomato-review {
-
-
 
     color: red;
-    width: 200px;
+    width: 100%;
     display: inline-block;
     padding: 10px;
     border: solid 2px black;
     border-radius: 10px;
-    /*float: left;
-    float: right;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;*/
-    
    
-    
-
 }
-
 
 #google-review {
-    color: blue;
-    width: 200px;
+
+    color: red;
+    width: 100%;
     display: inline-block;
     padding: 10px;
-    border:solid 2px black;
     border-radius: 10px;
-    /*float: left;
-    top: 50%;
-    right: 50%;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;*/
     
+   } 
 
-    
-}
-
-
-
-#restaurant-men {
-    background-color: #ffd47e;
-}
 
 .food-menu {
+    background-color: #ffd47e;
     height: 300px;
     overflow-y:auto;
 }
 
+.inputbox{
+    color:white;
+    background-color: blue;
+
+}
 
 div.zomatoRestaurantReview {
     box-sizing: border-box;
     border: 2px;
     border-bottom: 2px;
     margin-bottom: 2px;
-    /*border-style: solid;
-    border-color: black;
-    border-radius: 2px;
-    width: 200px;
-    float: left;*/
-}
-
-
-input {
-    color: #563A00;
     
 }
 
-#search-box{
 
-    background-color: #ffE1a6;
+#input {
+    background-image: url(https://cdn.pixabay.com/photo/2017/04/24/12/29/noodles-2256332_960_720.jpg);
+    background-size: cover;
     border-radius: 15px;
     padding-left: 25px;
+    
 }
+
+
+
+.hide-on-load {
+    display: none;
+}
+
+
+.onload-graphic {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.onload-div {
+    text-align: center;
+    margin-top: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    width: 200px;
+    padding:20px;
+    font-family: 'Shojumaru';
+    background-color: white;
+}
+.onload-div:hover{
+    background-color: #4dd0e1;
+}
+
+
+

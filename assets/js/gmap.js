@@ -5,8 +5,8 @@ var markersArray = [];
 function initMap() {
   //Default map position is San Diego
   var userPosition = {
-    lat: 32.920125899999995,
-    lng: -117.10881489999998
+    lat: 32.8242510000,
+    lng: -117.1542920000
   }
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
@@ -27,7 +27,7 @@ function clearOverlays(markersArray) {
 //The API performs a text search using the full address of the restaurant as pulled from the html
 function geoCoder(address) {
   $.ajax({
-    url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query="+address+"&type=restaurant&key=AIzaSyDb1dPGeHD13NV59mKWthv_ugMsnSh1N7w",
+    url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query="+address+"&type=restaurant&key=AIzaSyAxH7sN6qUgyMhcb0qbVhC2DGRS22CFeAE",
     method: "GET"
   }).done(function(response) {
     console.log(response);
@@ -65,14 +65,13 @@ function geoCoder(address) {
 //Queries the Google Maps Places API, obtains detailed place response and adds to page
 function getDetails(request) {
   $.ajax({
-    url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid="+request.placeId+"&key=AIzaSyDb1dPGeHD13NV59mKWthv_ugMsnSh1N7w",
+    url: "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid="+request.placeId+"&key=AIzaSyAxH7sN6qUgyMhcb0qbVhC2DGRS22CFeAE",
     method: "GET"
   }).done(function(response) {
     var restaurantImages = [];
       //Assigns the photo URLs from the Google Maps API to array
       for (i = 0; i < 7; i++) {
         if (response.result.photos[i].photo_reference !== undefined) {
-          console.log(response.result.photos[i].photo_reference);
           restaurantImages.push(response.result.photos[i].photo_reference);
         }
       };
@@ -96,7 +95,7 @@ function getDetails(request) {
     //Adds images to the page from images array
       for (i = 0; i < 5; i++) {
         var currentLoop = i+1;
-        $("#carousel_"+currentLoop).attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+restaurantImages[i]+"&key=AIzaSyDb1dPGeHD13NV59mKWthv_ugMsnSh1N7w");
+        $("#carousel_"+currentLoop).attr("src", "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+restaurantImages[i]+"&key=AIzaSyAxH7sN6qUgyMhcb0qbVhC2DGRS22CFeAE");
       };
   });
 }
@@ -127,7 +126,7 @@ $(document).ready(function(){
 
   $(".restaurants-collection").on("click", ".collapsible-header",function() {
     var address = $(this).children();
-    var address = encodeURI(address[1].innerText);
+    var address = encodeURI(address[2].innerText);
     console.log(address);
     geoCoder(address);
   });
