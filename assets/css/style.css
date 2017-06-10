@@ -1,31 +1,31 @@
 header {
-    background-image: url(http://images.all-free-download.com/images/graphiclarge/golden_wheat_vector_background_set_523647.jpg);
     text-align: center;
     font-family: 'Shojumaru';
     color: white;
     font-size: 36px;
 }
 
-.side-bar {
-    background-image: url("../images/noodles.jpg");
-    background-size: cover;
-}
-
 
 .main-content {
     color: black;
-    background-color: #FF4F00;
-    opacity: 0.85;
+    /*background-color: #FF4F00;*/
+    /*opacity: 0.85;*/
     height: 400px;
+    width:200px;
     overflow-y: auto;
 }
 
 
+
 #search-box {
-    background-color: #daa520;
-    color: black;
-    padding-left: 25px;    
+    border: inset;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width:260px;
 }
+
 
 #map {
     height:190px;
@@ -35,7 +35,7 @@ header {
     border-radius: 20px;
     margin: auto;
     margin-top: 20px;
-    background-color: #fe040A;
+    /*background-color: #fe040A;*/
     text-align: center;
     font-size: 36px;
     color: white
@@ -45,8 +45,9 @@ header {
 body {
     font-family: 'Roboto';
     color: #650003;
-    background-image: url("https://static.pexels.com/photos/87390/chilli-pepper-sharp-spices-laos-87390.jpeg");
-    background-size: cover;
+    background: url("http://shogunfusion.com/templates/31205/images/slide-5.jpg") no-repeat center fixed;
+    background-color: black;
+
 }
 
 .side-bar {
@@ -62,14 +63,17 @@ img {
   }
 
 .main-content {
-    background-image: url(http://images.all-free-download.com/images/graphiclarge/golden_wheat_vector_background_set_523647.jpg);
-    height: 400px !important;
+    /*background-image: url(http://images.all-free-download.com/images/graphiclarge/golden_wheat_vector_background_set_523647.jpg);*/
+    height: 400px;
     overflow-y:auto;
 }
 
+.collapsible {
+    width: 70%;
+}
 
 .collapsible-header {
-    background-color: white;
+    /*background-color: white;*/
     background-size: cover;
     opacity: .85;
 
@@ -98,16 +102,11 @@ img {
 
 
 .food-menu {
-    background-color: #ffd47e;
+    /*background-color: #ffd47e;*/
     height: 300px;
     overflow-y:auto;
 }
 
-.inputbox{
-    color:white;
-    background-color: blue;
-
-}
 
 div.zomatoRestaurantReview {
     box-sizing: border-box;
@@ -119,7 +118,7 @@ div.zomatoRestaurantReview {
 
 
 #input {
-    background-image: url(https://cdn.pixabay.com/photo/2017/04/24/12/29/noodles-2256332_960_720.jpg);
+    /*background-image: url(https://cdn.pixabay.com/photo/2017/04/24/12/29/noodles-2256332_960_720.jpg);*/
     background-size: cover;
     border-radius: 15px;
     padding-left: 25px;
@@ -152,7 +151,7 @@ div.zomatoRestaurantReview {
     background-color: white;
 }
 .onload-div:hover{
-    background-color: #4dd0e1;
+    /*background-color: #4dd0e1;*/
 }
 
 
