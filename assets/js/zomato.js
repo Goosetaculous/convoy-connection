@@ -70,18 +70,14 @@ $(document).ready(function(){
     function populateTable(restaurantInfo){
         var li = $("<li class='res-li' id='"+restaurantInfo.id+"'>" +
             "<div class='collapsible-header row' res-id='"+restaurantInfo.id+"'>" +
-            "<div class='col s2 getName' data-name='"+restaurantInfo.name+"'>"+restaurantInfo.name+"</div>" +
-            "<div class='col s2'>"+restaurantInfo.ratingNum+"</div>"+
-            "<div class='col s4'>"+restaurantInfo.address+"</div>" +
-            "<div class='col s4'>"+ restaurantInfo.cuisine+"</div>" +
+                "<div class='col s2 getName' data-name='"+restaurantInfo.name+"'>"+restaurantInfo.name+"</div>" +
+                "<div class='col s2'>"+restaurantInfo.ratingNum+"</div>"+
+                "<div class='col s4'>"+restaurantInfo.address+"</div>" +
+                "<div class='col s4'>"+ restaurantInfo.cuisine+"</div>" +
             "</div>" +
             "<div class='collapsible-body row'>" +
-            "<div class='col s9' id='restaurant-men'><h5>Menu</h5>" +
-            "<div class='food-menu'><div class='menu-msg'></div><table><tbody id='menu-entries-"+restaurantInfo.id+"' border='1'></tbody></table></div>" +
-            "</div>" +
-            "<div class='col s3'>" +
-            "<button data-target='modal1' class='btn' id='restaurant-rating'>Reviews</button>" +
-            "</div>" +
+                "<div class='col s12' id='restaurant-men'><span><button data-target='modal1' class='btn' id='restaurant-rating'>Reviews</button></span><hr><h5>Menu</h5>" +
+                "<div class='food-menu'><div class='menu-msg'></div><table><tbody id='menu-entries-"+restaurantInfo.id+"' border='1'></tbody></table></div></div>" +
             "</div>" +
             "</li>")
         $(".restaurants-collection").append(li)
@@ -166,14 +162,7 @@ $(document).ready(function(){
      * Click event for each <li>
      */
     $(".restaurants-collection").on("click", ".collapsible-header",function(){
-        $('.button-collapse').sideNav('show');
-        // $('.carousel').show()
         getReview( $(this).attr("res-id") )
-        var modal=$("<div id='modal1' class='modal bottom-sheet'>" +
-            "<div class='modal-content' id='restaurant-reviews'>" +
-            "<p>A bunch of id='restaurant-reviews'</p>" +
-            "</div>" +
-            "</div>")
     })
     /*
      Initial Load
