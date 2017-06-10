@@ -8,13 +8,10 @@ header {
 
 .main-content {
     color: black;
-    /*background-color: #FF4F00;*/
-    /*opacity: 0.85;*/
     height: 400px;
     width:200px;
     overflow-y: auto;
 }
-
 
 
 #search-box {
@@ -35,7 +32,6 @@ header {
     border-radius: 20px;
     margin: auto;
     margin-top: 20px;
-    /*background-color: #fe040A;*/
     text-align: center;
     font-size: 36px;
     color: white
@@ -47,6 +43,7 @@ body {
     color: #650003;
     background: url("http://shogunfusion.com/templates/31205/images/slide-5.jpg") no-repeat center fixed;
     background-color: black;
+    opacity: 80;
 
 }
 
@@ -63,20 +60,28 @@ img {
   }
 
 .main-content {
-    /*background-image: url(http://images.all-free-download.com/images/graphiclarge/golden_wheat_vector_background_set_523647.jpg);*/
-    height: 400px;
+    height: 450px;
     overflow-y:auto;
 }
 
 .collapsible {
-    width: 70%;
+    width: 100%;
 }
 
 .collapsible-header {
-    /*background-color: white;*/
     background-size: cover;
-    opacity: .85;
+    font-family: Verdana, Geneva, sans-serif;
+    opacity: 0.95;
+}
 
+.collapsible-body {
+    background-color:black;
+    opacity: 50;
+    color: whitesmoke;
+}
+
+#restaurant-men {
+    text-align: center;
 }
 
 #modal1 {

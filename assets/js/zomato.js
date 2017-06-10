@@ -76,7 +76,7 @@ $(document).ready(function(){
             "<div class='col s4'>"+ restaurantInfo.cuisine+"</div>" +
             "</div>" +
             "<div class='collapsible-body row'>" +
-            "<div class='col s9' id='restaurant-men'>Menu" +
+            "<div class='col s9' id='restaurant-men'><h5>Menu</h5>" +
             "<div class='food-menu'><div class='menu-msg'></div><table><tbody id='menu-entries-"+restaurantInfo.id+"' border='1'></tbody></table></div>" +
             "</div>" +
             "<div class='col s3'>" +

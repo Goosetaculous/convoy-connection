@@ -125,7 +125,6 @@ function showPosition(position) {
 $(document).ready(function(){
 
   $(".restaurants-collection").on("click", ".collapsible-header",function() {
-    document.getElementById( 'sidebar' ).style.display = 'block'
     var address = $(this).children();
     var address = encodeURI(address[2].innerText);
     console.log(address);
